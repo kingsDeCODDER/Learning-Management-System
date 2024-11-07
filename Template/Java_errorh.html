@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Error Handling</title>
+  <style>
+    /* Google Font */
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+    body {
+      font-family: "Raleway", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #dde1e8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(
+              135deg,
+              #00000069 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #0000006d 100%
+          );
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      color: #4caf50;
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 1em;
+    }
+
+    code {
+      color: #d63384;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4caf50;
+      color: #fff;
+      margin-top: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Java Error Handling</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Introduction to Error Handling in Java</h2>
+      <p>Java provides a robust mechanism for handling runtime errors through exceptions. Exceptions in Java allow you to handle errors gracefully without crashing the application. Error handling ensures that the application can recover or manage problems when something unexpected happens.</p>
+    </section>
+
+    <section>
+      <h2>Types of Exceptions in Java</h2>
+      <p>Exceptions in Java are categorized into two main types:</p>
+      <ul>
+        <li><strong>Checked Exceptions:</strong> Exceptions that are checked at compile-time (e.g., <code>IOException</code>, <code>SQLException</code>).</li>
+        <li><strong>Unchecked Exceptions:</strong> Exceptions that occur at runtime (e.g., <code>ArithmeticException</code>, <code>NullPointerException</code>).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Basic Error Handling Syntax</h2>
+      <p>Here’s the basic syntax for handling exceptions using <code>try</code>, <code>catch</code>, and <code>finally</code>:</p>
+      <pre><code>try {
+    // Code that might throw an exception
+} catch (ExceptionType e) {
+    // Handle the exception
+} finally {
+    // Code that will execute regardless of exception
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Example: Handling Multiple Exceptions</h2>
+      <p>Java allows handling multiple exceptions using multiple <code>catch</code> blocks:</p>
+      <pre><code>public class MultiCatchExample {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            int result = 10 / 0;
+            System.out.println(numbers[5]);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero.");
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bounds.");
+        } finally {
+            System.out.println("Execution completed.");
+        }
+    }
+}</code></pre>
+      <p>In this example, both <code>ArithmeticException</code> and <code>ArrayIndexOutOfBoundsException</code> are caught, and the <code>finally</code> block ensures that the program completes.</p>
+    </section>
+
+    <section>
+      <h2>Throwing Exceptions</h2>
+      <p>You can also manually throw exceptions using the <code>throw</code> keyword. This is useful when you want to create your own conditions for errors.</p>
+      <pre><code>public class ThrowExample {
+    public static void main(String[] args) {
+        try {
+            validateAge(15); // Throws exception
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    static void validateAge(int age) {
+        if (age < 18) {
+            throw new IllegalArgumentException("Age must be 18 or older.");
+        } else {
+            System.out.println("Age is valid.");
+        }
+    }
+}</code></pre>
+      <p>In this example, the method <code>validateAge</code> throws an <code>IllegalArgumentException</code> if the age is less than 18.</p>
+    </section>
+
+    <section>
+      <h2>Custom Exceptions</h2>
+      <p>Java allows you to create your own exception classes by extending the <code>Exception</code> class. This is useful when your application requires custom error conditions.</p>
+      <pre><code>class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            checkNumber(0); // Throws custom exception
+        } catch (CustomException e) {
+            System.out.println("Caught: " + e.getMessage());
+        }
+    }
+
+    static void checkNumber(int num) throws CustomException {
+        if (num == 0) {
+            throw new CustomException("Number cannot be zero.");
+        }
+    }
+}</code></pre>
+      <p>In this example, <code>CustomException</code> is thrown if the number is zero, demonstrating how to create and handle user-defined exceptions.</p>
+    </section>
+
+    <section>
+      <h2>Exception Propagation</h2>
+      <p>Exception propagation occurs when an exception is not caught in the method where it occurred, and it is passed to the caller method. This process continues until the exception is caught or the program terminates.</p>
+      <pre><code>public class ExceptionPropagationExample {
+    public static void main(String[] args) {
+        try {
+            method1();
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught: " + e);
+        }
+    }
+
+    static void method1() {
+        method2();
+    }
+
+    static void method2() {
+        int result = 10 / 0; // Causes ArithmeticException
+    }
+}</code></pre>
+      <p>In this example, the <code>ArithmeticException</code> is propagated from <code>method2</code> to <code>method1</code> and then caught in the <code>main</code> method.</p>
+    </section>
+
+    <section>
+      <h2>Common Java Exceptions</h2>
+      <p>Here are some commonly encountered exceptions in Java:</p>
+      <ul>
+        <li><code>NullPointerException</code> – When you try to use an object reference that is null.</li>
+        <li><code>ArithmeticException</code> – Occurs when there is an illegal arithmetic operation like division by zero.</li>
+        <li><code>ArrayIndexOutOfBoundsException</code> – Thrown when you try to access an invalid index of an array.</li>
+        <li><code>FileNotFoundException</code> – Thrown when a file is not found.</li>
+        <li><code>IOException</code> – General input/output exception.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

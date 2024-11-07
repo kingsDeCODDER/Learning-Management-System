@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Basics</title>
+    <style>
+        /* Google Font */
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+        body {
+            font-family: "Raleway", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #dde1e8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+              135deg,
+              #10bb1e 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #12af41 100%
+            );
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1em;
+        }
+
+        code {
+            color: #d63384;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>JavaScript Basics</h1>
+</header>
+
+<main>
+    <section>
+        <h2>Variables and Data Types</h2>
+        <p>In JavaScript, variables are containers for storing data values. You can declare variables using <code>var</code>, <code>let</code>, or <code>const</code>.</p>
+        <h3><code>var</code></h3>
+        <p>Used in older code, function-scoped.</p>
+        <pre><code>var x = 10;
+console.log(x); // Output: 10</code></pre>
+
+        <h3><code>let</code></h3>
+        <p>Introduced in ES6, block-scoped.</p>
+        <pre><code>let y = 20;
+console.log(y); // Output: 20</code></pre>
+
+        <h3><code>const</code></h3>
+        <p>Constant variable, cannot be reassigned.</p>
+        <pre><code>const z = 30;
+console.log(z); // Output: 30</code></pre>
+
+        <p>JavaScript supports various data types:</p>
+        <ul>
+            <li><strong>String</strong>: text, e.g., <code>"Hello"</code></li>
+            <li><strong>Number</strong>: numeric values, e.g., <code>42</code></li>
+            <li><strong>Boolean</strong>: true or false</li>
+            <li><strong>Null</strong>: intentional absence of any object value</li>
+            <li><strong>Undefined</strong>: variable declared but not assigned a value</li>
+            <li><strong>Object</strong>: complex data structures</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Operators</h2>
+        <h3>Arithmetic Operators</h3>
+        <p>Used for mathematical calculations.</p>
+        <ul>
+            <li><code>+</code>: Addition</li>
+            <li><code>-</code>: Subtraction</li>
+            <li><code>*</code>: Multiplication</li>
+            <li><code>/</code>: Division</li>
+            <li><code>%</code>: Modulus (Remainder)</li>
+            <li><code>++</code>: Increment</li>
+            <li><code>--</code>: Decrement</li>
+        </ul>
+        <pre><code>let a = 10;
+let b = 5;
+console.log(a + b); // Output: 15</code></pre>
+
+        <h3>Comparison Operators</h3>
+        <p>Used to compare values.</p>
+        <ul>
+            <li><code>==</code>: Equal to</li>
+            <li><code>!=</code>: Not equal to</li>
+            <li><code>===</code>: Strict equal to</li>
+            <li><code>!==</code>: Strict not equal to</li>
+            <li><code>&gt;</code>: Greater than</li>
+            <li><code>&lt;</code>: Less than</li>
+            <li><code>&gt;=</code>: Greater than or equal to</li>
+            <li><code>&lt;=</code>: Less than or equal to</li>
+        </ul>
+        <pre><code>console.log(a == b); // Output: false
+console.log(a &gt; b); // Output: true</code></pre>
+
+        <h3>Logical Operators</h3>
+        <p>Used to combine conditional statements.</p>
+        <ul>
+            <li><code>&&</code>: Logical AND</li>
+            <li><code>||</code>: Logical OR</li>
+            <li><code>!</code>: Logical NOT</li>
+        </ul>
+        <pre><code>let c = true;
+let d = false;
+console.log(c && d); // Output: false
+console.log(c || d); // Output: true</code></pre>
+    </section>
+
+    <section>
+        <h2>Control Flow</h2>
+        <h3><code>if</code> / <code>else</code> Statements</h3>
+        <p>Used to execute code based on a condition.</p>
+        <pre><code>let age = 18;
+if (age &gt;= 18) {
+    console.log("You are an adult.");
+} else {
+    console.log("You are a minor.");
+}</code></pre>
+
+        <h3><code>switch</code> Statements</h3>
+        <p>Used to perform different actions based on different conditions.</p>
+        <pre><code>let fruit = "apple";
+switch (fruit) {
+    case "banana":
+        console.log("Banana is yellow.");
+        break;
+    case "apple":
+        console.log("Apple is red.");
+        break;
+    default:
+        console.log("Unknown fruit.");
+}</code></pre>
+    </section>
+
+    <section>
+        <h2>Loops</h2>
+        <p>Loops allow you to execute a block of code multiple times.</p>
+
+        <h3><code>for</code> Loop</h3>
+        <pre><code>for (let i = 0; i &lt; 5; i++) {
+    console.log("Iteration " + i);
+}</code></pre>
+
+        <h3><code>while</code> Loop</h3>
+        <pre><code>let i = 0;
+while (i &lt; 5) {
+    console.log("Iteration " + i);
+    i++;
+}</code></pre>
+
+        <h3><code>do...while</code> Loop</h3>
+        <pre><code>let i = 0;
+do {
+    console.log("Iteration " + i);
+    i++;
+} while (i &lt; 5);</code></pre>
+    </section>
+
+</main>
+
+</body>
+</html>

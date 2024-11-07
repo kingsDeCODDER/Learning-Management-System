@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Basic Syntax</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Basic Syntax</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Python is a versatile, high-level programming language that is widely
+          used for web development, data analysis, artificial intelligence,
+          scientific computing, and more. Its syntax is designed to be readable
+          and straightforward, making it a great choice for beginners.
+        </p>
+      </section>
+
+      <section>
+        <h2>Comments</h2>
+        <p>
+          Comments are used to explain code and make it more readable. They are
+          ignored by the Python interpreter.
+        </p>
+        <pre><code># This is a single-line comment</code></pre>
+        <p>For multi-line comments, you can use triple quotes:</p>
+        <pre><code>"""
+This is a
+multi-line comment
+"""</code></pre>
+      </section>
+
+      <section>
+        <h2>Variables</h2>
+        <p>
+          Variables are used to store information that can be referenced and
+          manipulated later in the program. In Python, variables are created
+          when you assign a value to them:
+        </p>
+        <pre><code>x = 5
+y = "Hello, World!"</code></pre>
+        <p>
+          Python is dynamically typed, so you don't need to declare the type of
+          a variable explicitly.
+        </p>
+      </section>
+
+      <section>
+        <h2>Indentation</h2>
+        <p>
+          Indentation is crucial in Python. It is used to define the structure
+          and flow of your code, particularly for blocks like loops and
+          conditionals:
+        </p>
+        <pre><code>if x > 0:
+    print("x is positive")</code></pre>
+        <p>
+          Make sure you use consistent indentation (typically four spaces)
+          throughout your code.
+        </p>
+      </section>
+
+      <section>
+        <h2>Data Types</h2>
+        <p>Python supports various data types including:</p>
+        <ul>
+          <li><code>int</code> - Integer numbers</li>
+          <li><code>float</code> - Floating-point numbers</li>
+          <li><code>str</code> - Strings (text)</li>
+          <li><code>bool</code> - Boolean values (True or False)</li>
+          <li><code>list</code> - Ordered sequences of values</li>
+          <li><code>dict</code> - Key-value pairs</li>
+        </ul>
+        <p>Example:</p>
+        <pre><code>age = 30             # int
+height = 5.9          # float
+name = "Alice"        # str
+is_student = True     # bool
+colors = ["red", "green", "blue"]  # list
+person = {"name": "Alice", "age": 30}  # dict</code></pre>
+      </section>
+
+      <section>
+        <h2>Control Flow</h2>
+        <p>
+          Control flow in Python is managed using conditional statements like
+          <code>if</code>, <code>elif</code>, and <code>else</code>, and loops
+          like <code>for</code> and <code>while</code>.
+        </p>
+        <p>Example of an <code>if</code> statement:</p>
+        <pre><code>if age >= 18:
+    print("You are an adult.")
+else:
+    print("You are a minor.")</code></pre>
+        <p>Example of a <code>for</code> loop:</p>
+        <pre><code>for color in colors:
+    print(color)</code></pre>
+      </section>
+
+      <section>
+        <h2>Functions</h2>
+        <p>
+          Functions are reusable blocks of code that perform a specific task.
+          You define a function using the <code>def</code> keyword:
+        </p>
+        <pre><code>def greet(name):
+    return "Hello, " + name</code></pre>
+        <p>To call a function, you use its name followed by parentheses:</p>
+        <pre><code>greeting = greet("Alice")
+print(greeting)  # Output: Hello, Alice</code></pre>
+      </section>
+      <h2>Learn further with a video 🤗</h2>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/yxfnKw2DWEM?si=uRlbKLKOkz841IfP"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

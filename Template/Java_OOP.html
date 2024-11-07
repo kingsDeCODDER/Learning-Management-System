@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java OOP</title>
+  <style>
+    /* Google Font */
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+    body {
+      font-family: "Raleway", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #dde1e8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(
+              135deg,
+              #00000069 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #0000006d 100%
+          );
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      color: #4caf50;
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 1em;
+    }
+
+    code {
+      color: #d63384;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4caf50;
+      color: #fff;
+      margin-top: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Java Object-Oriented Programming (OOP)</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is Object-Oriented Programming?</h2>
+      <p>Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects," which are instances of classes. OOP focuses on using objects to model real-world entities and their interactions.</p>
+      <p>OOP in Java is based on four key principles: <strong>Encapsulation</strong>, <strong>Inheritance</strong>, <strong>Polymorphism</strong>, and <strong>Abstraction</strong>.</p>
+    </section>
+
+    <section>
+      <h2>Classes and Objects</h2>
+      <p>A class is a blueprint for creating objects. An object is an instance of a class. For example:</p>
+      <pre><code>class Car {
+    String model;
+    int year;
+
+    // Constructor
+    Car(String model, int year) {
+        this.model = model;
+        this.year = year;
+    }
+
+    // Method to display car details
+    void displayDetails() {
+        System.out.println("Model: " + model + ", Year: " + year);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car1 = new Car("Toyota Camry", 2020);
+        car1.displayDetails();  // Outputs: Model: Toyota Camry, Year: 2020
+    }
+}</code></pre>
+      <p>In this example, <code>Car</code> is the class, and <code>car1</code> is an object (instance) of the class.</p>
+    </section>
+
+    <section>
+      <h2>Encapsulation</h2>
+      <p>Encapsulation is the concept of wrapping data (variables) and code (methods) together into a single unit, i.e., a class. It restricts access to the internal workings of an object and only exposes a controlled interface.</p>
+      <p>In Java, encapsulation is achieved using access modifiers like <code>private</code>, <code>public</code>, and <code>protected</code>. Here's an example:</p>
+      <pre><code>class Person {
+    private String name;
+    private int age;
+
+    // Constructor
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getter for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for name
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person = new Person("Alice", 25);
+        System.out.println(person.getName());  // Outputs: Alice
+        person.setName("Bob");
+        System.out.println(person.getName());  // Outputs: Bob
+    }
+}</code></pre>
+      <p>Here, the <code>name</code> and <code>age</code> fields are private and can only be accessed or modified via public methods (getters and setters).</p>
+    </section>
+
+    <section>
+      <h2>Inheritance</h2>
+      <p>Inheritance allows one class to inherit fields and methods from another class. The class that inherits is called the <strong>subclass</strong>, and the class from which it inherits is the <strong>superclass</strong>.</p>
+      <pre><code>class Animal {
+    void makeSound() {
+        System.out.println("Some sound...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.makeSound();  // Outputs: Bark
+    }
+}</code></pre>
+      <p>In this example, the <code>Dog</code> class inherits from the <code>Animal</code> class and overrides the <code>makeSound()</code> method.</p>
+    </section>
+
+    <section>
+      <h2>Polymorphism</h2>
+      <p>Polymorphism means "many forms." It allows one interface to be used for different underlying forms (data types). In Java, there are two types of polymorphism:</p>
+      <ul>
+        <li><strong>Compile-time Polymorphism (Method Overloading)</strong>: Multiple methods with the same name but different parameter lists.</li>
+        <li><strong>Run-time Polymorphism (Method Overriding)</strong>: Subclasses can provide specific implementations of methods defined in their superclass.</li>
+      </ul>
+      <h3>Method Overloading Example</h3>
+      <pre><code>class Calculator {
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    double add(double a, double b) {
+        return a + b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(5, 3));  // Outputs: 8
+        System.out.println(calc.add(5.5, 3.5));  // Outputs: 9.0
+    }
+}</code></pre>
+
+      <h3>Method Overriding Example</h3>
+      <pre><code>class Shape {
+    void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape = new Circle();
+        shape.draw();  // Outputs: Drawing a circle
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Abstraction</h2>
+      <p>Abstraction is the concept of hiding the implementation details and only exposing the essential features of an object. In Java, abstraction can be achieved using abstract classes and interfaces.</p>
+      <h3>Abstract Class Example</h3>
+      <pre><code>abstract class Animal {
+    abstract void sound();
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Meow");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal cat = new Cat();
+        cat.sound();  // Outputs: Meow
+    }
+}</code></pre>
+
+      <h3>Interface Example</h3>
+      <pre><code>interface Animal {
+    void sound();
+}
+
+class Dog implements Animal {
+    @Override
+    public void sound() {
+        System.out.println("Bark");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.sound();  // Outputs: Bark
+    }
+}</code></pre>
+      <p>In this example, the <code>Dog</code> class implements the <code>Animal</code> interface and provides its own implementation of the <code>sound()</code> method.</p>
+    </section>
+  </main>
+
+</body>
+</html>

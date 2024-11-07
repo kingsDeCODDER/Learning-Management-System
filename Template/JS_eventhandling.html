@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Event Handling</title>
+    <style>
+        /* Google Font */
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+        body {
+            font-family: "Raleway", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #dde1e8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #3bbe0f 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #28bc18c5 100%
+            );
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1em;
+        }
+
+        code {
+            color: #d63384;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>JavaScript Event Handling</h1>
+</header>
+
+<main>
+    <section>
+        <h2>Introduction to Events</h2>
+        <p>In JavaScript, events are actions or occurrences that happen in the browser, such as user actions (clicks, key presses) or browser-specific events (loading, resizing). You can use JavaScript to listen for these events and respond accordingly.</p>
+        <p>Common event types include:</p>
+        <ul>
+            <li><strong>click</strong>: Triggered when an element is clicked.</li>
+            <li><strong>keypress</strong>: Triggered when a key is pressed down.</li>
+            <li><strong>submit</strong>: Triggered when a form is submitted.</li>
+        </ul>
+        <p>Example of a click event:</p>
+        <pre><code>
+// HTML: &lt;button id="myButton"&gt;Click Me&lt;/button&gt;
+// JavaScript:
+document.getElementById("myButton").addEventListener("click", function() {
+  alert("Button clicked!");
+});
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Event Listeners</h2>
+        <p>To make web pages interactive, you can use the <code>addEventListener()</code> method to listen for events on specific elements.</p>
+        <p>Example of adding an event listener:</p>
+        <pre><code>
+// HTML: &lt;button id="myButton"&gt;Click Me&lt;/button&gt;
+// JavaScript:
+document.getElementById("myButton").addEventListener("click", function() {
+  alert("You clicked the button!");
+});
+        </code></pre>
+        <p>You can also remove event listeners using <code>removeEventListener()</code> if needed:</p>
+        <pre><code>
+// Function that alerts a message
+function showMessage() {
+  alert("Button clicked!");
+}
+
+// Add event listener
+let button = document.getElementById("myButton");
+button.addEventListener("click", showMessage);
+
+// Remove event listener
+button.removeEventListener("click", showMessage);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Event Delegation</h2>
+        <p>Event delegation is a technique that allows you to add a single event listener to a parent element instead of adding multiple event listeners to child elements. This can improve performance when dealing with a large number of elements.</p>
+        <p>Example of event delegation:</p>
+        <pre><code>// HTML:
+&lt;ul id="parentList"&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+
+// JavaScript: Adding event listener to the parent (ul)
+document.getElementById("parentList").addEventListener("click", function(event) {
+  if (event.target && event.target.nodeName == "LI") {
+    alert("List item clicked: " + event.target.innerHTML);
+  }
+});
+        </code></pre>
+        <p>In this example, even though the event listener is added to the parent <code>&lt;ul&gt;</code>, it will trigger when any of the <code>&lt;li&gt;</code> elements inside it are clicked. This is efficient for handling events on multiple child elements.</p>
+    </section>
+
+    <section>
+        <h2>Form Validation with JavaScript</h2>
+        <p>Form validation ensures that the data entered by the user is accurate and complete before submitting the form. JavaScript can be used to validate forms on the client side, preventing bad data from being submitted to the server.</p>
+        <p>Example of basic form validation:</p>
+        <pre><code>
+// HTML:
+&lt;form id="myForm"&gt;
+  Name: &lt;input type="text" id="name" /&gt;&lt;br&gt;
+  Email: &lt;input type="email" id="email" /&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+// JavaScript: Validating the form fields
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  let name = document.getElementById("name").value;
+  let email = document.getElementById("email").value;
+
+  if (name === "" || email === "") {
+    alert("Please fill out all fields.");
+    event.preventDefault(); // Prevent the form from being submitted
+  }
+});
+        </code></pre>
+        <p>In this example, the form won't submit unless both the name and email fields are filled in. The <code>event.preventDefault()</code> method prevents the form's default submit behavior if validation fails.</p>
+    </section>
+
+    <section>
+        <h2>Preventing Default Actions</h2>
+        <p>When certain events are triggered (like submitting a form or clicking a link), the browser performs a default action. You can prevent this default action using the <code>event.preventDefault()</code> method.</p>
+        <p>Example of preventing a form's default submit action:</p>
+        <pre><code>// HTML:
+&lt;form id="myForm"&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+
+// JavaScript:
+document.getElementById("myForm").addEventListener("submit", function(event) {
+  alert("Form submission prevented.");
+  event.preventDefault(); // Prevent form submission
+});
+        </code></pre>
+    </section>
+
+</main>
+
+</body>
+</html>

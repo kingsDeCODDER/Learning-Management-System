@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'signup.js' %}"></script>
+</head>
+<body>
+    <title>BIG7Space - Sign Up</title>
+<div class="container mt-5">
+    <!-- Main row to center content and adjust column width based on screen size -->
+    <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-8 col-sm-10 col-12">
+            <!-- Branding and Form Title -->
+            <h3 class="text-center">BIG7Space</h3>
+            <h2 class="text-center mb-4">Sign Up</h2>
+            <title>BIG7Space - Sign Up</title>
+            <!-- Signup Form Container -->
+            <form method="post" id="signupForm" class="p-4 border rounded shadow-sm bg-light">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <!-- Full-width Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+                 <br>
+                <!-- Login Link Button -->
+                <div class="d-grid">
+                    <button class="btn btn-primary"><a href="http://127.0.0.1:8000/login/" class="btn btn-secondary" style="text-decoration:none; color:black;">Login</a></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

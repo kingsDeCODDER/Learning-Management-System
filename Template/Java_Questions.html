@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Practice Questions</title>
+  <style>
+    /* Google Font */
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+    body {
+      font-family: "Raleway", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #dde1e8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(
+              135deg,
+              #00000069 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #0000006d 100%
+          );
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      color: #4caf50;
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 1em;
+    }
+
+    code {
+      color: #d63384;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4caf50;
+      color: #fff;
+      margin-top: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Java Practice Questions</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>1. Java Basics</h2>
+      <p><strong>Question:</strong> Write a Java program that prints "Hello, World!" to the console.</p>
+      <pre><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Modify the program to accept user input and print "Hello, [User's Name]!"</p>
+    </section>
+
+    <section>
+      <h2>2. Control Flow</h2>
+      <p><strong>Question:</strong> Write a program to check if a number is even or odd.</p>
+      <pre><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = scanner.nextInt();
+
+        if (num % 2 == 0) {
+            System.out.println(num + " is even.");
+        } else {
+            System.out.println(num + " is odd.");
+        }
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Modify the program to check if a number is prime.</p>
+    </section>
+
+    <section>
+      <h2>3. Arrays</h2>
+      <p><strong>Question:</strong> Write a Java program to find the largest number in an array.</p>
+      <pre><code>public class Main {
+    public static void main(String[] args) {
+        int[] numbers = {5, 3, 9, 7, 1};
+        int largest = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > largest) {
+                largest = numbers[i];
+            }
+        }
+
+        System.out.println("The largest number is: " + largest);
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Modify the program to find the smallest number in the array.</p>
+    </section>
+
+    <section>
+      <h2>4. Object-Oriented Programming (OOP)</h2>
+      <p><strong>Question:</strong> Write a program with a <code>Car</code> class that has fields for <code>make</code>, <code>model</code>, and <code>year</code>. Create a method <code>displayInfo()</code> to display the car's information.</p>
+      <pre><code>class Car {
+    String make;
+    String model;
+    int year;
+
+    Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+
+    void displayInfo() {
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Toyota", "Corolla", 2020);
+        car.displayInfo();
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Add another method to the <code>Car</code> class that calculates and returns the car's age based on the current year.</p>
+    </section>
+
+    <section>
+      <h2>5. Inheritance</h2>
+      <p><strong>Question:</strong> Create a class <code>Animal</code> with a method <code>sound()</code>. Then, create a subclass <code>Dog</code> that overrides the <code>sound()</code> method to print "Bark".</p>
+      <pre><code>class Animal {
+    void sound() {
+        System.out.println("Some sound...");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Bark");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound();  // Outputs: Bark
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Create another subclass <code>Cat</code> that overrides the <code>sound()</code> method to print "Meow".</p>
+    </section>
+
+    <section>
+      <h2>6. Exception Handling</h2>
+      <p><strong>Question:</strong> Write a program that handles a division by zero exception using a <code>try-catch</code> block.</p>
+      <pre><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter dividend: ");
+            int dividend = scanner.nextInt();
+
+            System.out.print("Enter divisor: ");
+            int divisor = scanner.nextInt();
+
+            int result = dividend / divisor;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        }
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Add another catch block to handle <code>InputMismatchException</code> when the user enters a non-integer value.</p>
+    </section>
+
+    <section>
+      <h2>7. Java Collections</h2>
+      <p><strong>Question:</strong> Write a program to store and display a list of fruits using <code>ArrayList</code>.</p>
+      <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; fruits = new ArrayList&lt;&gt;();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Mango");
+
+        System.out.println("Fruits: " + fruits);
+    }
+}</code></pre>
+      <p><strong>Practice:</strong> Modify the program to sort the list of fruits in alphabetical order.</p>
+    </section>
+
+    <section>
+      <h2>Practice Exercises</h2>
+      <p>Practice makes perfect! Try solving these exercises to reinforce what you've learned:</p>
+      <ul>
+        <li><strong>Factorial Program:</strong> Create a program that calculates the factorial of a number using a loop or recursion.</li>
+        <li><strong>Bank Account Class:</strong> Write a class to model a simple bank account with methods to deposit, withdraw, and check the balance.</li>
+        <li><strong>Sorting Algorithm:</strong> Implement a program that sorts an array of integers using a sorting algorithm such as bubble sort, selection sort, or insertion sort.</li>
+      </ul>
+    </section>
+
+  </main>
+
+</body>
+</html>

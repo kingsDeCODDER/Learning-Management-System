@@ -1,0 +1,187 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Navbar */
+.navbar {
+  margin-bottom: 20px;
+  background-color: #343a40;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 2rem;
+    font-weight: 900;
+    color: #a3a7b17a;
+    margin-bottom: 30px;
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00d1b2;
+}
+
+/* Jumbotron */
+.jumbotron {
+  background-image: linear-gradient(to right bottom, #007bff, #6c63ff);
+  color: white;
+  padding: 70px 25px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.jumbotron h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.jumbotron p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-select, .form-control {
+  border: 2px solid #007bff;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-select:focus, .form-control:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.2);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 91, 187, 0.2);
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  box-shadow: 0 4px 8px rgba(33, 136, 56, 0.2);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  box-shadow: 0 4px 8px rgba(200, 35, 51, 0.2);
+}
+
+/* Sections */
+.language-section, .contact-section, .whatsapp-section, .auth-section{
+  margin-bottom: 50px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.language-section h2, .contact-section h2, .whatsapp-section h2, .auth-section h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #343a40;
+}
+
+#languageInfo, #contactResult, #authResult {
+  margin-top: 20px;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  padding: 20px;
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .jumbotron h1 {
+      font-size: 2.5rem;
+  }
+
+  .jumbotron p {
+      font-size: 1rem;
+  }
+
+  .navbar-brand {
+      font-size: 1.3rem;
+  }
+
+  .nav-link {
+      font-size: 1rem;
+  }
+
+  .language-section h2, .contact-section h2, .whatsapp-section h2, .auth-section h2 {
+      font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .jumbotron h1 {
+      font-size: 2rem;
+  }
+
+  .jumbotron p {
+      font-size: 0.9rem;
+  }
+
+  .navbar-brand {
+      font-size: 1.2rem;
+  }
+
+  .nav-link {
+      font-size: 0.9rem;
+  }
+
+  .language-section h2, .contact-section h2, .whatsapp-section h2, .auth-section h2 {
+      font-size: 1.6rem;
+  }
+}

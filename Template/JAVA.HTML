@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Lessons for Beginners</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+        body {
+            font-family: "Raleway", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #00000069 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #0000006d 100%
+            );
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-8px);
+        }
+
+        .lesson h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #e60000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background: linear-gradient(
+                135deg,
+                #00000069 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #00000087 100%
+            );
+            color: #fff;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Java Lessons for Beginners</h1>
+        <nav>
+            <a href="{% url 'Java_intro' %}" style="text-decoration:none">Introduction</a>
+            <a href="{% url 'Java_setup' %}" style="text-decoration:none">Setup</a>
+            <a href="{% url 'Java_basic_syntax' %}" style="text-decoration:none">Basic Syntax</a>
+            <a href="{% url 'Java_helloworld' %}" style="text-decoration:none">Hello World</a>
+            <a href="{% url 'Java_errorh' %}" style="text-decoration:none">Error Handling</a>
+            <a href="{% url 'Java_arrays'%}" style="text-decoration:none">Arrays</a>
+            <a href="{% url 'Java_OOP' %}" style="text-decoration:none">OOP Concepts</a>
+            <a href="{% url 'Java_collection' %}" style="text-decoration:none">Collections</a>
+            <a href="{% url 'Java_Questions' %}" style="text-decoration:none">Exercises</a>
+        </nav>
+    </header>
+    <main>
+        <section id="introduction" class="lesson">
+            <a href="{% url 'Java_intro' %}" style="text-decoration:none;color: black;">
+            <h2>Introduction to Java</h2>
+            <p>Java is a high-level, class-based, object-oriented programming language designed to have as few implementation dependencies as possible. It is used for developing a range of applications, including desktop, mobile, and web applications.</p>
+            </a>
+        </section>
+
+        <section id="setup" class="lesson">
+            <a href="{% url 'Java_setup' %}" style="text-decoration:none;color: black;">
+            <h2>Setup and Installation</h2>
+            <p>To start programming in Java, you need to install the Java Development Kit (JDK) and set up an Integrated Development Environment (IDE) like Eclipse or IntelliJ IDEA. Follow the official installation guides for detailed instructions.</p>
+            </a>
+        </section>
+        <section id="syntax" class="lesson">
+            <a href="{% url 'Java_basic_syntax' %}" style="text-decoration:none;color: black;">
+            <h2>Basic Syntax</h2>
+            <p>Java syntax is the set of rules that defines the combinations of symbols that are considered to be correctly structured Java programs. Learn about data types, operators, and the basic syntax rules that form the foundation of Java programming.</p>
+            </a>
+        </section>
+        <section id="hello-world" class="lesson">
+            <a href="{% url 'Java_helloworld' %}" style="text-decoration:none;color: black">
+            <h2>Hello World Program</h2>
+            <p>The "Hello, World!" program is a simple way to get started with Java. It demonstrates the basic structure of a Java application. Here's a basic example:</p>
+            <pre><code>public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}</code></pre>
+            </a>
+        </section>
+
+        <section id="error-handling" class="lesson">
+            <a href="{% url 'Java_errorh' %}" style="text-decoration:none;color: black">
+            <h2>Error Handling</h2>
+            <p>Learn how to handle errors and exceptions in Java using try-catch blocks. This helps in managing runtime errors and ensuring that your program can handle unexpected situations gracefully.</p>
+            </a>
+        </section>
+
+        <section id="arrays" class="lesson">
+            <a href="{% url 'Java_arrays'%}" style="text-decoration:none;color:black;">
+            <h2>Arrays</h2>
+            <p>Arrays in Java are used to store multiple values of the same type in a single variable. Learn how to declare, initialize, and manipulate arrays.</p>
+            </a>
+        </section>
+
+        <section id="oop" class="lesson">
+            <a href="{% url 'Java_OOP' %}" style="text-decoration:none;color:black;">
+            <h2>Object-Oriented Programming Concepts</h2>
+            <p>Java is an object-oriented language. Understand key concepts like classes, objects, inheritance, and polymorphism, and how they are used to model real-world entities.</p>
+            </a>
+        </section>
+
+        <section id="collections" class="lesson">
+            <a  href="{% url 'Java_collection' %}" style="text-decoration:none;color:black;">
+            <h2>Collections Framework</h2>
+            <p>Java Collections Framework provides a set of classes and interfaces for storing and manipulating groups of data. Explore classes like ArrayList, HashSet, and HashMap.</p>
+            </a>
+        </section>
+
+        <section id="exercises" class="lesson">
+            <a href="{% url 'Java_Questions' %}" style="text-decoration:none;color:black;">
+            <h2>Practice Exercises</h2>
+            <p>Practice makes perfect! Try solving these exercises to reinforce what you've learned:</p>
+            <ul>
+                <li>Create a program that calculates the factorial of a number.</li>
+                <li>Write a class to model a simple bank account with deposit and withdrawal methods.</li>
+                <li>Implement a program that sorts an array of integers using a sorting algorithm.</li>
+
+            </ul>
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Java Lessons for Beginners</p>
+    </footer>
+</body>
+</html>

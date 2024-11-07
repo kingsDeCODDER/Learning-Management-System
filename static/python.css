@@ -1,0 +1,92 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: linear-gradient(
+    135deg,
+    #2506d3 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #0609d4 100%
+  );
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.lesson {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.lesson:hover {
+  transform: translateY(-8px);
+}
+
+.lesson h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #e60000;
+}
+
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background: linear-gradient(
+    135deg,
+    #170acd 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #3907dd 100%
+  );
+  color: #fff;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}

@@ -1,0 +1,245 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Lessons</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap">
+    <style>
+        /* The provided CSS */
+        body {
+            font-family: 'Raleway', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #1bba28 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #17be3b 100%
+            );
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .lesson {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .lesson:hover {
+            transform: translateY(-8px);
+        }
+
+        .lesson h2 {
+            margin-top: 0;
+            font-size: 1.5em;
+            color: #e60000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background: linear-gradient(
+                135deg,
+                #1bba28 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #17be3b 100%
+            );
+            color: #fff;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>JavaScript Lessons</h1>
+        <nav>
+            <a href="{% url 'intro_to_JS' %}" style="text-decoration:none;">Introduction</a>
+            <a href="{% url 'JS_BASIC' %}" style="text-decoration:none;">JS Basics</a>
+            <a href="{% url 'dom_manipulation' %}" style="text-decoration:none;">DOM Manipulation</a>
+            <a href="{% url 'JS_eventhandling' %}" style="text-decoration:none;">Event Handling</a>
+            <a href="{% url 'JS_functions' %}" style="text-decoration:none;">Functions</a>
+            <a href="{% url 'JS_oop' %} " style="text-decoration:none;">OOP in JS</a>
+            <a href="{% url 'JS_async' %}" style="text-decoration:none;">Async JS</a>
+            <a href="{% url 'JS_es6' %}" style="text-decoration:none;">ES6 Features</a>
+            <a href="{% url 'JS_tools' %} " style="text-decoration:none;">Dev Tools & Debugging</a>
+            <a href="{% url 'JS_projects' %} " style="text-decoration: none;">Building Projects</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="lesson" id="intro">
+         <a href="{% url 'intro_to_JS' %}" style="text-decoration:none; color:black">
+            <h2>Introduction to JavaScript</h2>
+            <p>Understand the basics of JavaScript, its role in web development, and how it interacts with HTML and CSS.</p>
+         </a>
+        </div>
+
+        <div class="lesson" id="basics">
+            <a href="{% url 'JS_BASIC'%}" style="text-decoration:none;color: black;">
+            <h2>JavaScript Basics</h2>
+            <ul>
+                <li>Variables and Data Types (var, let, const)</li>
+                <li>Operators (arithmetic, comparison, logical)</li>
+                <li>Control Flow (if/else, switch)</li>
+                <li>Loops (for, while, do-while)</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="dom">
+            <a href="{% url 'dom_manipulation' %}" style="text-decoration:none;color: black;">
+            <h2>DOM Manipulation</h2>
+            <ul>
+                <li>Understanding the DOM</li>
+                <li>Selecting Elements (getElementById, querySelector)</li>
+                <li>Modifying HTML and CSS using JavaScript</li>
+                <li>Creating and Removing Elements</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="events">
+            <a href="{% url 'JS_eventhandling' %}" style="text-decoration:none;color: black">
+            <h2>Event Handling</h2>
+            <ul>
+                <li>Introduction to Events (click, keypress, submit)</li>
+                <li>Event Listeners (addEventListener)</li>
+                <li>Event Delegation</li>
+                <li>Form Validation with JavaScript</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="functions">
+            <a href="{% url 'JS_functions' %}" style="text-decoration:none;color: black">
+            <h2>Functions</h2>
+            <ul>
+                <li>Function Declarations and Expressions</li>
+                <li>Arrow Functions (ES6)</li>
+                <li>Callbacks</li>
+                <li>Closures</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="oop">
+            <a href="{% url 'JS_oop' %} " style="text-decoration:none;color: black">
+            <h2>Object-Oriented Programming in JavaScript</h2>
+            <ul>
+                <li>Objects and Prototypes</li>
+                <li>Constructor Functions</li>
+                <li>Classes (ES6)</li>
+                <li>Inheritance and Polymorphism</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="async">
+            <a href="{% url 'JS_async' %}" style="text-decoration:none;color: black">
+            <h2>Asynchronous JavaScript</h2>
+            <ul>
+                <li>Callbacks</li>
+                <li>Promises</li>
+                <li>Async/Await</li>
+                <li>Handling Errors with Async Code</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="es6">
+            <a href="{% url 'JS_es6' %}" style="text-decoration:none;color: black">
+            <h2>ES6+ Features</h2>
+            <ul>
+                <li>Let and Const</li>
+                <li>Template Literals</li>
+                <li>Destructuring</li>
+                <li>Spread and Rest Operators</li>
+                <li>Modules</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="tools">
+            <a href="{% url 'JS_tools' %} " style="text-decoration:none;color: black">
+            <h2>Dev Tools & Debugging</h2>
+            <ul>
+                <li>Introduction to Developer Tools</li>
+                <li>Console Logging</li>
+                <li>Debugging Techniques</li>
+                <li>Breakpoints and Call Stack</li>
+            </ul>
+            </a>
+        </div>
+
+        <div class="lesson" id="projects">
+            <a href="{% url 'JS_projects' %} " style="text-decoration: none;color: black">
+            <h2>Building JavaScript Projects</h2>
+            <ul>
+                <li>Project Structure</li>
+                <li>Version Control with Git</li>
+                <li>Building Simple Applications (To-Do List, Calculator)</li>
+                <li>Deploying Projects</li>
+            </ul>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 JavaScript Course. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

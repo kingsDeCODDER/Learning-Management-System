@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Python Modules and Packages</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Modules and Packages</h1>
+    </header>
+    <main>
+      <section>
+        <h2>What is a Python Module?</h2>
+        <p>
+          A <strong>module</strong> is simply a Python file that contains
+          functions, classes, or variables that you can use in other programs.
+          Modules allow you to organize your code into reusable pieces.
+        </p>
+        <p>
+          For example, you can write a module that has a function to greet
+          users, and import this function in other Python programs.
+        </p>
+        <pre><code># Create a file called 'greetings.py' with a function
+# greetings.py
+def greet(name):
+    return f"Hello, {name}!"
+
+# In another Python file, you can import this module and use the function
+# main.py
+import greetings
+
+print(greetings.greet("Alice"))  # Output: Hello, Alice!
+</code></pre>
+        <p>
+          As shown, you can create your own module (like
+          <code>greetings.py</code>), and then import and use it in another
+          Python file by using <code>import module_name</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Creating and Using Python Packages</h2>
+        <p>
+          A <strong>package</strong> is a way of organizing related modules in
+          directories. It’s a folder that contains multiple Python modules,
+          along with an <code>__init__.py</code> file to indicate that it’s a
+          package.
+        </p>
+        <p>
+          Here's an example of creating a package for basic math operations. The
+          package will contain two modules: one for addition and another for
+          subtraction.
+        </p>
+        <pre><code># Directory structure:
+# mymath/
+# ├── __init__.py
+# ├── addition.py
+# └── subtraction.py
+
+# In addition.py:
+def add(a, b):
+    return a + b
+
+# In subtraction.py:
+def subtract(a, b):
+    return a - b
+
+# In __init__.py:
+from .addition import add
+from .subtraction import subtract
+</code></pre>
+        <p>
+          Now, you can use this package in another Python script by importing
+          it:
+        </p>
+        <pre><code># main.py
+import mymath
+
+# Using the functions from the package
+result_add = mymath.add(5, 3)
+result_subtract = mymath.subtract(10, 4)
+
+print(result_add)       # Output: 8
+print(result_subtract)  # Output: 6
+</code></pre>
+        <p>
+          As shown, packages allow you to structure your code for larger
+          applications. The <code>__init__.py</code> file makes the directory a
+          package and enables you to access the modules within it.
+        </p>
+      </section>
+
+      <section>
+        <h2>Installing and Using External Packages</h2>
+        <p>
+          Python has a vast collection of external packages available in the
+          Python Package Index (PyPI). You can install these packages using
+          <strong>pip</strong>, Python’s package installer.
+        </p>
+        <p>
+          For example, let’s install and use the <code>requests</code> package:
+        </p>
+        <pre><code># Open your terminal and run:
+pip install requests
+
+# Now, you can use the 'requests' package to make HTTP requests
+import requests
+
+response = requests.get("https://api.example.com")
+print(response.status_code)  # Output: 200 (if the request is successful)
+</code></pre>
+        <p>
+          External packages simplify your coding by providing pre-built
+          functionality. Whether it's working with HTTP requests, data
+          visualization, or machine learning, there's likely a package that
+          suits your needs.
+        </p>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/1oFneicTaII?si=ZmIcUPWZVR3QGDxx"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

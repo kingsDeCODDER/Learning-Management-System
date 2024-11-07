@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Python File Handling</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python File Handling</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Introduction to File Handling</h2>
+        <p>
+          File handling is an essential concept in Python, allowing you to read,
+          write, and manipulate files stored on your computer. Python provides
+          several built-in functions like <code>open()</code>,
+          <code>read()</code>, <code>write()</code>, and <code>close()</code> to
+          manage files.
+        </p>
+        <p>The most common file modes are:</p>
+        <ul>
+          <li>
+            <code>'r'</code>: Read mode (default). Opens the file for reading.
+          </li>
+          <li>
+            <code>'w'</code>: Write mode. Creates a new file or overwrites an
+            existing file.
+          </li>
+          <li>
+            <code>'a'</code>: Append mode. Opens the file and appends new data
+            to the end.
+          </li>
+          <li>
+            <code>'x'</code>: Exclusive creation mode. Creates a new file and
+            raises an error if it already exists.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Opening and Reading Files</h2>
+        <p>
+          To read a file in Python, you use the <code>open()</code> function in
+          read mode. You can read the entire content of the file, or you can
+          read it line by line.
+        </p>
+        <pre><code># Open the file in read mode
+file = open("example.txt", "r")
+
+# Read the entire content of the file
+content = file.read()
+print(content)
+
+# Always close the file after reading
+file.close()
+</code></pre>
+        <p>You can also read the file line by line using a loop:</p>
+        <pre><code># Read file line by line
+file = open("example.txt", "r")
+
+for line in file:
+    print(line.strip())
+
+file.close()
+</code></pre>
+      </section>
+
+      <section>
+        <h2>Writing to Files</h2>
+        <p>
+          Writing to a file is just as simple. You use the
+          <code>open()</code> function with the write mode <code>'w'</code> or
+          append mode <code>'a'</code>. The <code>'w'</code> mode overwrites the
+          file, while the <code>'a'</code> mode appends new data to the end of
+          the file.
+        </p>
+        <pre><code># Open the file in write mode ('w')
+file = open("example.txt", "w")
+
+# Write some content to the file
+file.write("Hello, world!\n")
+file.write("This is a new file.")
+
+# Close the file after writing
+file.close()
+</code></pre>
+        <p>
+          If you want to add more content without overwriting the existing
+          content:
+        </p>
+        <pre><code># Open the file in append mode ('a')
+file = open("example.txt", "a")
+
+# Append new data to the file
+file.write("\nThis text is appended.")
+
+file.close()
+</code></pre>
+      </section>
+
+      <section>
+        <h2>Working with Context Managers</h2>
+        <p>
+          A more efficient way to handle files is by using a
+          <strong>context manager</strong>, which ensures the file is closed
+          automatically after the block of code is executed. This is done using
+          the <code>with</code> statement.
+        </p>
+        <pre><code># Using a context manager to read a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# No need to manually close the file
+</code></pre>
+        <p>
+          This approach is safer and cleaner because it ensures the file is
+          always properly closed.
+        </p>
+      </section>
+
+      <section>
+        <h2>Handling File Exceptions</h2>
+        <p>
+          When working with files, it's important to handle errors, such as when
+          a file does not exist. You can use <code>try</code> and
+          <code>except</code> blocks to manage these situations.
+        </p>
+        <pre><code># Try to open a file that may not exist
+try:
+    with open("non_existent_file.txt", "r") as file:
+        content = file.read()
+except FileNotFoundError:
+    print("The file was not found!")
+</code></pre>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/DmHSwTiD5Tk?si=xHNP5NIEcQiH38bh"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

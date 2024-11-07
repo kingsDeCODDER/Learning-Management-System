@@ -1,0 +1,39 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f8;
+}
+
+.container {
+    max-width: 600px;
+}
+
+h3, h2 {
+    font-weight: bold;
+    color: #333;
+}
+
+form {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #004085;
+    color: #fff;
+}
+
+a.btn {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: none;
+}
+
+a.btn:hover {
+    background-color: #bee5eb;
+    color: #0c5460;
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java Collections Framework</title>
+  <style>
+    /* Google Font */
+    @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+    body {
+      font-family: "Raleway", sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #dde1e8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(
+              135deg,
+              #00000069 0%,
+              #e6683c 25%,
+              #dc2743 50%,
+              #cc2366 75%,
+              #0000006d 100%
+          );
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    section h2 {
+      color: #4caf50;
+      font-size: 1.8em;
+      margin-top: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 1em;
+    }
+
+    code {
+      color: #d63384;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #4caf50;
+      color: #fff;
+      margin-top: 20px;
+      border-radius: 0 0 10px 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Java Collections Framework</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>What is the Collections Framework?</h2>
+      <p>The <strong>Java Collections Framework</strong> provides a set of classes and interfaces to store and manipulate groups of objects as a single unit, such as lists, sets, maps, and queues. It makes the task of working with data structures easier and more efficient.</p>
+    </section>
+
+    <section>
+      <h2>Main Interfaces in the Collections Framework</h2>
+      <p>The core interfaces in the Java Collections Framework are:</p>
+      <ul>
+        <li><strong>Collection</strong> - The root interface for all collection types.</li>
+        <li><strong>List</strong> - An ordered collection (e.g., <code>ArrayList</code>, <code>LinkedList</code>).</li>
+        <li><strong>Set</strong> - A collection that contains no duplicate elements (e.g., <code>HashSet</code>, <code>TreeSet</code>).</li>
+        <li><strong>Queue</strong> - A collection designed for holding elements prior to processing (e.g., <code>PriorityQueue</code>, <code>LinkedList</code>).</li>
+        <li><strong>Map</strong> - A collection of key-value pairs (e.g., <code>HashMap</code>, <code>TreeMap</code>).</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>List Example</h2>
+      <p>A <code>List</code> in Java maintains the order of insertion and allows duplicate elements. The most commonly used implementations are <code>ArrayList</code> and <code>LinkedList</code>. Here's an example using <code>ArrayList</code>:</p>
+      <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+
+        System.out.println("Fruits: " + list);  // Outputs: Fruits: [Apple, Banana, Orange]
+
+        list.remove("Banana");
+        System.out.println("After removal: " + list);  // Outputs: After removal: [Apple, Orange]
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Set Example</h2>
+      <p>A <code>Set</code> is a collection that contains no duplicate elements. The most common implementations are <code>HashSet</code> and <code>TreeSet</code>. Here's an example using <code>HashSet</code>:</p>
+      <pre><code>import java.util.HashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        HashSet&lt;Integer&gt; set = new HashSet&lt;&gt;();
+        set.add(1);
+        set.add(2);
+        set.add(3);
+        set.add(2);  // Duplicate element
+
+        System.out.println("Set: " + set);  // Outputs: Set: [1, 2, 3] (duplicates are ignored)
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Queue Example</h2>
+      <p>A <code>Queue</code> is used to hold elements prior to processing and typically follows a <strong>FIFO (First In, First Out)</strong> order. Here's an example using <code>PriorityQueue</code>:</p>
+      <pre><code>import java.util.PriorityQueue;
+
+public class Main {
+    public static void main(String[] args) {
+        PriorityQueue&lt;Integer&gt; queue = new PriorityQueue&lt;&gt;();
+        queue.add(5);
+        queue.add(10);
+        queue.add(1);
+
+        System.out.println("Head of the queue: " + queue.peek());  // Outputs: Head of the queue: 1
+
+        queue.poll();  // Remove the head element
+        System.out.println("After removing head: " + queue);  // Outputs: After removing head: [5, 10]
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Map Example</h2>
+      <p>A <code>Map</code> is a collection that maps keys to values. It does not allow duplicate keys. The most common implementations are <code>HashMap</code> and <code>TreeMap</code>. Here's an example using <code>HashMap</code>:</p>
+      <pre><code>import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+        map.put("Apple", 10);
+        map.put("Banana", 20);
+        map.put("Orange", 30);
+
+        System.out.println("Map: " + map);  // Outputs: Map: {Apple=10, Banana=20, Orange=30}
+
+        map.remove("Banana");
+        System.out.println("After removal: " + map);  // Outputs: After removal: {Apple=10, Orange=30}
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Iterating Over a Collection</h2>
+      <p>You can use an <strong>Iterator</strong> or a <strong>for-each loop</strong> to traverse through elements in a collection. Here's an example of iterating through a <code>List</code> using a for-each loop:</p>
+      <pre><code>import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Orange");
+
+        for (String fruit : list) {
+            System.out.println(fruit);
+        }
+    }
+}</code></pre>
+    </section>
+
+    <section>
+      <h2>Advantages of the Collections Framework</h2>
+      <ul>
+        <li><strong>Reusable code</strong>: The framework provides standard interfaces and classes for data structures that can be reused in different applications.</li>
+        <li><strong>Performance improvements</strong>: Algorithms and data structures are optimized for better performance.</li>
+        <li><strong>Thread safety</strong>: Some implementations in the framework, like <code>ConcurrentHashMap</code>, are thread-safe.</li>
+        <li><strong>Flexibility</strong>: Collections can grow dynamically, making them more flexible than arrays.</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>

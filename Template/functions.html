@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Python Functions</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Functions</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>1. What is a Function?</h2>
+        <p>
+          In Python, a function is a reusable block of code that performs a
+          specific task. Functions allow you to avoid repetition and make your
+          code more organized and modular.
+        </p>
+        <p><strong>Syntax:</strong></p>
+        <pre><code>def function_name(parameters):
+    # Block of code
+    return result</code></pre>
+      </section>
+
+      <section>
+        <h2>2. Basic Function Example</h2>
+        <p>
+          Here’s a simple example of a Python function that takes two numbers
+          and returns their sum:
+        </p>
+        <pre><code># Function to add two numbers
+def add_numbers(a, b):
+    return a + b
+
+# Calling the function
+result = add_numbers(5, 3)
+print(result)  # Output: 8</code></pre>
+        <p>
+          In this example, <code>add_numbers</code> is the function that accepts
+          two arguments, <code>a</code> and <code>b</code>, and returns their
+          sum.
+        </p>
+      </section>
+
+      <section>
+        <h2>3. Functions with Default Parameters</h2>
+        <p>
+          You can define default values for function parameters, which allows
+          you to call the function without passing all arguments.
+        </p>
+        <pre><code># Function with default parameters
+def greet(name="Guest"):
+    print(f"Hello, {name}!")
+
+# Calling the function with and without an argument
+greet("Alice")  # Output: Hello, Alice!
+greet()         # Output: Hello, Guest!</code></pre>
+        <p>
+          In this example, the parameter <code>name</code> has a default value
+          of "Guest", so if no argument is passed, it uses the default.
+        </p>
+      </section>
+
+      <section>
+        <h2>4. Return Values from Functions</h2>
+        <p>
+          Functions can return values, which allows you to store the result of a
+          function in a variable and use it later.
+        </p>
+        <pre><code># Function to calculate the square of a number
+def square(num):
+    return num ** 2
+
+# Storing the return value in a variable
+result = square(4)
+print(result)  # Output: 16</code></pre>
+        <p>
+          The <code>square</code> function calculates the square of a number and
+          returns the result, which can then be used elsewhere.
+        </p>
+      </section>
+
+      <section>
+        <h2>5. Lambda Functions (Anonymous Functions)</h2>
+        <p>
+          Python also supports anonymous functions, which are defined using the
+          <code>lambda</code> keyword. These functions are useful when you need
+          a small function for a short period.
+        </p>
+        <pre><code># Lambda function to add two numbers
+add = lambda x, y: x + y
+
+# Calling the lambda function
+print(add(5, 3))  # Output: 8</code></pre>
+        <p>
+          In this example, <code>lambda</code> defines an anonymous function
+          that takes two arguments and returns their sum.
+        </p>
+      </section>
+
+      <section>
+        <h2>6. Advanced: Functions with *args and **kwargs</h2>
+        <p>
+          Python functions can accept a variable number of arguments using
+          <code>*args</code> and <code>**kwargs</code>.
+          <code>*args</code> allows you to pass a variable number of positional
+          arguments, and <code>**kwargs</code> allows you to pass a variable
+          number of keyword arguments.
+        </p>
+        <pre><code># Function with *args (variable number of positional arguments)
+def sum_all(*args):
+    return sum(args)
+
+# Calling the function with multiple arguments
+print(sum_all(1, 2, 3, 4))  # Output: 10
+
+# Function with **kwargs (variable number of keyword arguments)
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+# Calling the function with multiple keyword arguments
+print_info(name="Alice", age=30, city="New York")  # Output:
+# name: Alice
+# age: 30
+# city: New York</code></pre>
+        <p>
+          In the first example, <code>*args</code> allows the function to take
+          any number of arguments and sum them. In the second example,
+          <code>**kwargs</code> allows the function to handle a variable number
+          of keyword arguments.
+        </p>
+      </section>
+
+      <section>
+        <h2>7. Nested Functions</h2>
+        <p>
+          Functions can be defined inside other functions. These are called
+          nested or inner functions, and they can be useful for creating
+          closures or encapsulating functionality.
+        </p>
+        <pre><code># Outer function
+def outer_function(message):
+    # Inner function
+    def inner_function():
+        print(message)
+
+    # Call the inner function
+    inner_function()
+
+# Calling the outer function
+outer_function("Hello from the outer function!")  # Output: Hello from the outer function!</code></pre>
+        <p>
+          In this example, the <code>inner_function</code> is defined inside the
+          <code>outer_function</code> and can access the variables of the outer
+          function.
+        </p>
+      </section>
+
+      <section>
+        <h2>8. Recursive Functions</h2>
+        <p>
+          A recursive function is one that calls itself in order to solve a
+          problem. This is a powerful technique, often used for problems that
+          can be broken down into smaller, similar problems.
+        </p>
+        <pre><code># Recursive function to calculate factorial
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+# Calling the recursive function
+print(factorial(5))  # Output: 120</code></pre>
+        <p>
+          In this example, the <code>factorial</code> function calls itself
+          until it reaches the base case (<code>n == 1</code>), calculating the
+          factorial of a number.
+        </p>
+      </section>
+
+      <section>
+        <h2>9. Conclusion</h2>
+        <p>
+          Functions are essential in Python programming. They provide structure
+          and help avoid repetition in code. Starting from basic functions with
+          parameters and return values to advanced topics like
+          <code>*args</code>, <code>**kwargs</code>, recursion, and nested
+          functions, mastering them will significantly improve your coding
+          skills.
+        </p>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/u-OmVr_fT4s?si=EVQqJa-U13-5SX8e"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

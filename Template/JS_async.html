@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Asynchronous JavaScript</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #2ed122 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #10b336 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Asynchronous JavaScript</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          Asynchronous JavaScript enables non-blocking operations in JavaScript. This means you can perform tasks like fetching data from a server, reading files, or waiting for user input without stopping the execution of other code. This capability is essential for building responsive and efficient web applications.
+        </p>
+        <p>
+          Asynchronous operations can be handled using callbacks, promises, and async/await. Each approach offers different advantages and is suitable for various scenarios.
+        </p>
+      </section>
+
+      <section>
+        <h2>Callbacks</h2>
+        <p>
+          A <strong>callback</strong> is a function passed as an argument to another function, which is then invoked inside the outer function to complete an action. Callbacks are a fundamental method for handling asynchronous operations, but they can lead to callback hell when multiple callbacks are nested.
+        </p>
+        <p>
+          <strong>Callback Hell</strong> refers to the scenario where multiple nested callbacks make code difficult to read and maintain.
+        </p>
+        <pre><code>// Simulating an asynchronous operation using setTimeout
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = 'Data fetched successfully!';
+    callback(data);
+  }, 2000);
+}
+
+// Using the fetchData function with a callback
+fetchData((result) => {
+  console.log(result);  // Output after 2 seconds: Data fetched successfully!
+});
+        </code></pre>
+        <p>
+          In this example, the <code>fetchData</code> function simulates an asynchronous operation using <code>setTimeout</code>. The provided callback function is executed once the data is "fetched."
+        </p>
+      </section>
+
+      <section>
+        <h2>Promises</h2>
+        <p>
+          A <strong>promise</strong> represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises help to manage asynchronous operations more effectively compared to callbacks, especially in avoiding callback hell.
+        </p>
+        <p>
+          A promise can be in one of three states: <strong>pending</strong>, <strong>fulfilled</strong>, or <strong>rejected</strong>. A fulfilled promise has successfully completed and has a result value, while a rejected promise has encountered an error.
+        </p>
+        <pre><code>// Creating a promise
+function fetchData() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const success = true;  // Change to false to test rejection
+      if (success) {
+        resolve('Data fetched successfully!');
+      } else {
+        reject('Failed to fetch data');
+      }
+    }, 2000);
+  });
+}
+
+// Using the promise
+fetchData()
+  .then((result) => {
+    console.log(result);  // Output after 2 seconds: Data fetched successfully!
+  })
+  .catch((error) => {
+    console.error(error);  // Handle any errors
+  });
+        </code></pre>
+        <p>
+          Here, the <code>fetchData</code> function returns a promise that is either resolved with data or rejected with an error. The <code>then</code> method handles successful results, while <code>catch</code> handles errors.
+        </p>
+      </section>
+
+      <section>
+        <h2>Async/Await</h2>
+        <p>
+          <strong>Async/await</strong> provides a more readable and synchronous-like way to handle asynchronous operations. An <code>async</code> function always returns a promise, and within an <code>async</code> function, you can use <code>await</code> to pause execution until a promise is resolved.
+        </p>
+        <p>
+          Using <code>async</code> and <code>await</code> can greatly improve code readability, especially when dealing with multiple asynchronous operations.
+        </p>
+        <pre><code>// Async function with await
+async function fetchData() {
+  try {
+    const data = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const success = true;  // Change to false to test rejection
+        if (success) {
+          resolve('Data fetched successfully!');
+        } else {
+          reject('Failed to fetch data');
+        }
+      }, 2000);
+    });
+    return data;
+  } catch (error) {
+    console.error(error);  // Handle any errors
+  }
+}
+
+// Using the async function
+fetchData()
+  .then((result) => {
+    console.log(result);  // Output after 2 seconds: Data fetched successfully!
+  });
+        </code></pre>
+        <p>
+          In this example, the <code>fetchData</code> function uses <code>await</code> to wait for the promise to resolve or reject. The <code>try/catch</code> block is used for error handling.
+        </p>
+      </section>
+
+      <section>
+        <h2>Error Handling</h2>
+        <p>
+          Proper error handling is crucial for managing asynchronous code. For promises, you use the <code>catch</code> method to handle errors. With async/await, you use <code>try/catch</code> blocks.
+        </p>
+        <p>
+          Failure to handle errors properly can lead to unhandled promise rejections and other unexpected behaviors.
+        </p>
+        <pre><code>// Async function with error handling
+async function fetchData() {
+  try {
+    const data = await new Promise((_, reject) => {
+      setTimeout(() => {
+        reject('Failed to fetch data');  // Simulating an error
+      }, 2000);
+    });
+    return data;
+  } catch (error) {
+    console.error(error);  // Output after 2 seconds: Failed to fetch data
+  }
+}
+
+// Using the async function
+fetchData();
+        </code></pre>
+        <p>
+          In this example, the <code>fetchData</code> function simulates an error by rejecting the promise. The <code>try/catch</code> block catches and logs the error.
+        </p>
+      </section>
+
+      <section>
+        <h2>Real-World Example: Fetching Data from an API</h2>
+        <p>
+          Fetching data from an API is a common use case for asynchronous JavaScript. You can use the <code>fetch</code> API, which returns a promise, to make network requests and handle responses asynchronously.
+        </p>
+        <pre><code>// Fetching data from an API using async/await
+async function getUserData() {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    console.log(data);  // Output: List of users
+  } catch (error) {
+    console.error('Fetch error:', error);
+  }
+}
+
+// Call the async function
+getUserData();
+        </code></pre>
+        <p>
+          In this example, <code>getUserData</code> fetches data from a placeholder API. The response is checked for success, converted to JSON, and logged. Errors are caught and handled appropriately.
+        </p>
+      </section>
+
+    </main>
+
+  </body>
+</html>

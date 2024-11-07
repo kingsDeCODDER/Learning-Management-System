@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduction to JavaScript</title>
+    <style>
+        /* Google Font */
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+        body {
+            font-family: "Raleway", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #dde1e8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #1bba28 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #17be3b 100%
+            );
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1em;
+        }
+
+        code {
+            color: #d63384;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: linear-gradient(
+                135deg,
+                #1bba28 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #17be3b 100%
+            );
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Introduction to JavaScript</h1>
+</header>
+
+<main>
+    <section>
+        <h2>What is JavaScript?</h2>
+        <p>JavaScript is a programming language that allows you to implement complex features on web pages. It enables you to create dynamically updating content, control multimedia, animate images, and much more.</p>
+    </section>
+
+    <section>
+        <h2>History of JavaScript</h2>
+        <p>JavaScript was created by Brendan Eich in 1995. Initially, it was developed in just 10 days to provide a scripting language for web browsers. Today, JavaScript is an essential technology of the World Wide Web, alongside HTML and CSS.</p>
+    </section>
+
+    <section>
+        <h2>How JavaScript Works</h2>
+        <p>JavaScript is executed in the browser, allowing developers to interact with the Document Object Model (DOM). Here's a simple example of how JavaScript can display a message in the browser's console:</p>
+        <pre><code>console.log("Hello, JavaScript!");</code></pre>
+        <p>This code will output the message "Hello, JavaScript!" in the browser's console.</p>
+    </section>
+
+    <section>
+        <h2>Why Learn JavaScript?</h2>
+        <p>JavaScript is a versatile and beginner-friendly language. It is essential for web development, allowing you to build interactive websites and web applications. JavaScript is also widely used in game development, mobile apps, and server-side programming.</p>
+    </section>
+
+    <section>
+        <h2>Embedding JavaScript in HTML</h2>
+        <p>JavaScript can be embedded directly into HTML files using the <code>&lt;script&gt;</code> tag. Here's an example:</p>
+        <pre><code>&lt;script&gt;
+    alert("Welcome to JavaScript!");
+&lt;/script&gt;
+        </code></pre>
+        <p>This code will display an alert message saying "Welcome to JavaScript!" when the page loads.</p>
+    </section>
+
+    <section>
+        <h2>JavaScript Example</h2>
+        <p>Let’s look at a basic example of JavaScript in action. This example changes the text of an HTML element when a button is clicked:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;JS Example&lt;/title&gt;
+    &lt;script&gt;
+      function changeText() {
+        document.getElementById("demo").innerHTML = "JavaScript is awesome!";
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p id="demo"&gt;Click the button to change this text.&lt;/p&gt;
+    &lt;button onclick="changeText()"&gt;Click me&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+    </section>
+</main>
+
+</body>
+</html>

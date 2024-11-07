@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Object-Oriented Programming in JavaScript</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #33f049 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #18bc4f 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Object-Oriented Programming in JavaScript</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is OOP?</h2>
+        <p>
+          Object-Oriented Programming (OOP) is a paradigm in programming where the structure of the code is based on objects rather than functions or logic. Objects are entities that have both data (known as properties) and behavior (known as methods). OOP concepts help in organizing complex programs in a way that makes them easier to manage, extend, and debug.
+        </p>
+        <p>
+          JavaScript supports OOP by using objects, and starting from ES6 (ECMAScript 2015), it introduced the <code>class</code> syntax to make OOP more intuitive.
+        </p>
+      </section>
+
+      <section>
+        <h2>Classes and Objects</h2>
+        <p>
+          A <strong>class</strong> is a blueprint or template for creating objects. An <strong>object</strong> is an instance of a class and contains properties and methods that define its behavior and data. In JavaScript, we can define a class using the <code>class</code> keyword and create objects using the <code>new</code> keyword.
+        </p>
+        <pre><code>// Define a class
+class Car {
+  constructor(brand, model) {
+    // The constructor method initializes the object
+    this.brand = brand;  // brand is a property
+    this.model = model;  // model is a property
+  }
+
+  // Method to display information about the car
+  displayInfo() {
+    return `Car: ${this.brand} ${this.model}`;
+  }
+}
+
+// Create an instance of the Car class
+const myCar = new Car('Toyota', 'Corolla');
+
+// Call the displayInfo method on the object
+console.log(myCar.displayInfo());  // Output: Car: Toyota Corolla
+        </code></pre>
+        <p>
+          In this example, the <code>Car</code> class has a constructor method that initializes the object with the brand and model. We can create multiple objects (instances) of the <code>Car</code> class, each with its own brand and model.
+        </p>
+      </section>
+
+      <section>
+        <h2>Inheritance</h2>
+        <p>
+          <strong>Inheritance</strong> allows a class (child class) to inherit properties and methods from another class (parent class). This promotes code reuse and enables the creation of specialized subclasses. In JavaScript, inheritance is implemented using the <code>extends</code> keyword and the <code>super()</code> function.
+        </p>
+        <pre><code>// Define a subclass that inherits from Car
+class ElectricCar extends Car {
+  constructor(brand, model, batteryLife) {
+    // Call the parent class constructor using super()
+    super(brand, model);
+    this.batteryLife = batteryLife;  // Add a new property specific to ElectricCar
+  }
+
+  // Method to display battery information
+  displayBatteryInfo() {
+    return `Battery Life: ${this.batteryLife} hours`;
+  }
+}
+
+// Create an instance of the ElectricCar class
+const myElectricCar = new ElectricCar('Tesla', 'Model S', 24);
+
+console.log(myElectricCar.displayInfo());  // Output: Car: Tesla Model S
+console.log(myElectricCar.displayBatteryInfo());  // Output: Battery Life: 24 hours
+        </code></pre>
+        <p>
+          In this example, the <code>ElectricCar</code> class inherits from the <code>Car</code> class. It extends the functionality by adding a new property, <code>batteryLife</code>, and a method to display battery information.
+        </p>
+      </section>
+
+      <section>
+        <h2>Encapsulation</h2>
+        <p>
+          <strong>Encapsulation</strong> refers to the practice of bundling the data (properties) and methods that operate on the data into a single unit (class) while restricting access to certain parts of the object. In JavaScript, we can use <em>private properties</em> by convention (prefixing property names with an underscore) or by using <code>WeakMaps</code> (ES6+) or the new <code>#</code> syntax (ES2020+).
+        </p>
+        <pre><code>// Define a class with private properties (using underscore convention)
+class User {
+  constructor(username, password) {
+    this.username = username;
+    this._password = password;  // private property by convention
+  }
+
+  getUsername() {
+    return this.username;
+  }
+
+  // Public method to check password
+  checkPassword(inputPassword) {
+    return this._password === inputPassword;
+  }
+}
+
+// Create an instance of the User class
+const user = new User('john_doe', '12345');
+console.log(user.getUsername());  // Output: john_doe
+console.log(user.checkPassword('12345'));  // Output: true
+        </code></pre>
+        <p>
+          In this example, the <code>_password</code> property is treated as private by convention, meaning it should not be accessed or modified outside the class. Instead, the class provides a public method, <code>checkPassword()</code>, to access it safely.
+        </p>
+      </section>
+
+      <section>
+        <h2>Polymorphism</h2>
+        <p>
+          <strong>Polymorphism</strong> is the ability to process objects differently based on their class. In other words, methods in different classes can share the same name but behave differently depending on which class they belong to. This allows objects to be treated as instances of their parent class but still invoke their own specific implementations.
+        </p>
+        <pre><code>// Define a parent class
+class Animal {
+  speak() {
+    return 'The animal makes a sound';
+  }
+}
+
+// Define subclasses with their own implementations of the speak method
+class Dog extends Animal {
+  speak() {
+    return 'The dog barks';
+  }
+}
+
+class Cat extends Animal {
+  speak() {
+    return 'The cat meows';
+  }
+}
+
+// Create instances of Dog and Cat
+const myDog = new Dog();
+const myCat = new Cat();
+
+console.log(myDog.speak());  // Output: The dog barks
+console.log(myCat.speak());  // Output: The cat meows
+        </code></pre>
+        <p>
+          Although <code>Dog</code> and <code>Cat</code> are both subclasses of <code>Animal</code>, they each have their own version of the <code>speak</code> method. This is polymorphism in action, where each object behaves according to its specific class but can be treated as an instance of the parent class.
+        </p>
+      </section>
+
+      <section>
+        <h2>Abstraction</h2>
+        <p>
+          <strong>Abstraction</strong> is the concept of hiding the internal details of how something works and only exposing the functionality that is necessary for use. It simplifies complex systems by providing a clear interface. JavaScript doesn't have built-in support for true abstraction like some other languages, but we can achieve it using interfaces or simply hiding unnecessary details in our methods.
+        </p>
+        <pre><code>// Example of abstraction in JavaScript
+class CoffeeMachine {
+  constructor(brand) {
+    this.brand = brand;
+  }
+
+  // Public method to make coffee
+  makeCoffee() {
+    this._heatWater();
+    this._brewCoffee();
+    return 'Coffee is ready!';
+  }
+
+  // Private methods (hidden details)
+  _heatWater() {
+    console.log('Heating water...');
+  }
+
+  _brewCoffee() {
+    console.log('Brewing coffee...');
+  }
+}
+
+const myMachine = new CoffeeMachine('Nespresso');
+console.log(myMachine.makeCoffee());
+// Output:
+// Heating water...
+// Brewing coffee...
+// Coffee is ready!
+        </code></pre>
+        <p>
+          In this example, the internal methods <code>_heatWater()</code> and <code>_brewCoffee()</code> are hidden from the user of the class. The user interacts with the public method <code>makeCoffee()</code>, without needing to know the details of how it works internally.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

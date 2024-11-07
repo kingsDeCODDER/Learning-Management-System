@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Language Learning</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'index.js' %}"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">BIG7space</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'byu_page' %}">Learn Via BYU Idaho</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cpp_page' %}">wish to be an Ethical Hacker(white Hat) ?</a>
+                </li>
+        </div>
+    </div>
+</nav>
+
+<!-- Jumbotron -->
+<div class="jumbotron">
+    <h3 class="display-4">Want to Learn Programming Languages Python,JavaScript,Java & lot more ?
+    </h3>
+    <p class="lead">Choose a programming language,get in touch with your instructor, and join our community.</p>
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+    <div class="video-container">
+        <h3>WATCH AND CHOOSE WISELY</h3>
+        <div class="responsive-video" style="border-radius:30px;">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kJOqIaGwQ7Y?si=uufzUGHuaTxM5XFI"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <!-- Language Selection -->
+    <div class="language-section" id="languageSection">
+        <h2 style="color:rgb(255, 255, 255);">Select a Programming Language</h2>
+        <form id="languageForm">
+            <div class="form-group mb-3">
+                <label for="languageSelect" style="color:rgb(230, 227, 238);">Choose a language:</label>
+                <select class="form-select" id="languageSelect" required style="background-color:black;">
+                    <option selected disabled style="color:rgb(238, 231, 231);">Select Language</option>
+                    <option value="python" data-url="{% url 'python_page' %}">Python</option>
+                    <option value="javascript" data-url="{% url 'javascript_page' %}">JavaScript</option>
+                    <option value="java" data-url="{% url 'java_page' %}">Java</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <div id="languageInfo" class="mt-4"></div>
+    </div>
+
+    <!-- Contact Instructor -->
+    <div class="contact-section" id="contactSection">
+        <h2 style="color:white;"> Contact Kingsley(BIG7) </h2>
+        <form id="contactForm" method="POST" action="{% url 'contact_instructor' %}">
+            <div class="mb-3">
+                <label for="name" class="form-label" style="color:white;">Your Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label" style="color: white;">Email address</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label" style="color: white;">Message</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+        <div id="contactResult" class="mt-4"></div>
+    </div>
+
+    <!-- WhatsApp Group -->
+    <div class="whatsapp-section" id="whatsappSection">
+
+        <p>Join our community of learners by clicking the link below:</p>
+        <a href="https://chat.whatsapp.com/EdT4KdrkNme2EqtUgPyVSq" target="_blank" class="btn btn-success">WhatsApp</a>
+        <a href="https://www.facebook.com/profile.php?id=61566575075381" target="_blank" class="btn btn-success" style="color:white;background-color: lightskyblue;">Facebook</a>
+    </div>
+
+<!-- Footer -->
+<footer>
+    <p style="color:black;">&copy; 2024 BIG7Space. All rights reserved.</p> <p style="color:black;">sponsor: TryHackMe, PathwayConnect</p>
+</footer>
+
+</body>
+</html>

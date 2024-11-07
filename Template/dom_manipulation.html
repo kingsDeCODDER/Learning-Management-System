@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM Manipulation in JavaScript</title>
+    <style>
+        /* Google Font */
+        @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+        body {
+            font-family: "Raleway", sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #dde1e8;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(
+                135deg,
+                #16aa4c 0%,
+                #e6683c 25%,
+                #dc2743 50%,
+                #cc2366 75%,
+                #19af14 100%
+            );
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            color: #4caf50;
+            font-size: 1.8em;
+            margin-top: 0;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 1em;
+        }
+
+        code {
+            color: #d63384;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>DOM Manipulation in JavaScript</h1>
+</header>
+
+<main>
+    <section>
+        <h2>What is DOM Manipulation?</h2>
+        <p>The Document Object Model (DOM) is an API for structured documents like HTML and XML. It allows JavaScript to access and manipulate elements, attributes, and text in web pages. By manipulating the DOM, you can dynamically change the content, structure, or style of a webpage without needing to reload it.</p>
+    </section>
+
+    <section>
+        <h2>How the DOM Works</h2>
+        <p>Think of the DOM as a tree-like structure where each HTML element is a node. The <code>document</code> object in JavaScript provides access to the DOM, and from there you can select and modify these nodes. For example, you can access the entire document by using <code>document</code>.</p>
+        <p>The <strong>DOM Tree</strong> starts with the <code>&lt;html&gt;</code> element as the root, followed by children like <code>&lt;head&gt;</code> and <code>&lt;body&gt;</code>.</p>
+    </section>
+
+    <section>
+        <h2>Selecting Elements in the DOM</h2>
+        <p>To manipulate DOM elements, you first need to select them. JavaScript provides several methods to access elements.</p>
+
+        <h3>getElementById</h3>
+        <p>Use <code>document.getElementById()</code> to select an element by its unique ID:</p>
+        <pre><code>// Select the element with the ID "myElement"
+let element = document.getElementById("myElement");
+console.log(element);
+        </code></pre>
+
+        <h3>querySelector</h3>
+        <p>Use <code>document.querySelector()</code> to select the first element that matches a CSS selector:</p>
+        <pre><code>// Select the first element with the class "myClass"
+let element = document.querySelector(".myClass");
+console.log(element);
+        </code></pre>
+
+        <h3>querySelectorAll</h3>
+        <p>If you need to select multiple elements, <code>document.querySelectorAll()</code> returns a NodeList of all matching elements:</p>
+        <pre><code>// Select all elements with the class "myClass"
+let elements = document.querySelectorAll(".myClass");
+elements.forEach(function(element) {
+  console.log(element);
+});
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Modifying HTML Content</h2>
+        <p>Once you've selected an element, you can modify its content and attributes:</p>
+
+        <h3>innerHTML</h3>
+        <p>To change the HTML content inside an element, use <code>innerHTML</code>:</p>
+        <pre><code>// Replace the content of the element with ID "myElement"
+document.getElementById("myElement").innerHTML = "New content!";
+        </code></pre>
+
+        <h3>innerText</h3>
+        <p>If you want to change only the text (ignoring any HTML tags), use <code>innerText</code>:</p>
+        <pre><code>// Change the text content
+document.getElementById("myElement").innerText = "New text!";
+        </code></pre>
+
+        <h3>setAttribute and getAttribute</h3>
+        <p>To modify an element’s attributes like <code>src</code> or <code>href</code>, use <code>setAttribute()</code> and <code>getAttribute()</code>:</p>
+        <pre><code>// Change the href attribute of a link
+document.getElementById("myLink").setAttribute("href", "https://example.com");
+
+// Get the href attribute
+let href = document.getElementById("myLink").getAttribute("href");
+console.log(href);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Modifying CSS Using JavaScript</h2>
+        <p>You can dynamically modify the CSS properties of an element using JavaScript:</p>
+        <pre><code>// Change the color of the text
+document.getElementById("myElement").style.color = "red";
+
+// Change multiple properties
+document.getElementById("myElement").style.cssText = "color: red; font-size: 20px;";
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Creating and Removing Elements</h2>
+        <h3>Creating Elements</h3>
+        <p>You can create new HTML elements using <code>document.createElement()</code>:</p>
+        <pre><code>// Create a new div element
+let newDiv = document.createElement("div");
+newDiv.innerHTML = "I am a new div!";
+document.body.appendChild(newDiv);
+        </code></pre>
+
+        <h3>Removing Elements</h3>
+        <p>To remove an element, you can use <code>removeChild()</code> or <code>remove()</code>:</p>
+        <pre><code>// Remove an element by selecting it first
+let element = document.getElementById("myElement");
+element.remove();
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>Event Listeners in DOM Manipulation</h2>
+        <p>Event listeners are crucial for making your webpage interactive. With event listeners, JavaScript can listen to and respond to user actions like clicks, key presses, or mouse movements.</p>
+
+        <h3>Adding Event Listeners</h3>
+        <pre><code>// Add an event listener to a button
+let button = document.getElementById("myButton");
+button.addEventListener("click", function() {
+  alert("Button clicked!");
+});
+        </code></pre>
+
+        <h3>Removing Event Listeners</h3>
+        <pre><code>// Remove an event listener
+button.removeEventListener("click", myFunction);
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>DOM Manipulation Example</h2>
+        <p>Here's an interactive example where clicking the button will change the content of a paragraph:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;DOM Manipulation Example&lt;/title&gt;
+    &lt;script&gt;
+      function changeContent() {
+        document.getElementById("text").innerHTML = "The content has been changed!";
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p id="text"&gt;Click the button to change this text.&lt;/p&gt;
+    &lt;button onclick="changeContent()"&gt;Change Content&lt;/button&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+    </section>
+</main>
+</body>
+</html>

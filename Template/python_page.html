@@ -1,0 +1,153 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Lessons</title>
+    <link rel="stylesheet" href="{%static 'python.css'%}" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Python Lessons</h1>
+      <nav>
+        <a href="{% url 'basic_syntax' %}" style="text-decoration: none"
+          >Basic Syntax</a
+        >
+        <a href="{% url 'operator' %}" style="text-decoration: none"
+          >Operators</a
+        >
+        <a href="{% url 'controlflow' %}" style="text-decoration: none"
+          >Control Flow</a
+        >
+        <a href="{% url 'functions' %}" style="text-decoration: none"
+          >Functions</a
+        >
+        <a href="{% url 'Data_structures'%}" style="text-decoration: none"
+          >Data Structures</a
+        >
+        <a href="{% url 'modules_packages' %}" style="text-decoration: none"
+          >Modules & Packages</a
+        >
+        <a href="{% url 'file_handling' %}" style="text-decoration: none"
+          >File Handling</a
+        >
+        <a href="{% url 'exception_handling' %}" style="text-decoration: none"
+          >Exception Handling</a
+        >
+        <a href="{% url 'OOP' %}" style="text-decoration: none">OOP</a>
+        <a href="{% url 'libraries_frameworks' %}" style="text-decoration: none"
+          >Libraries & Frameworks</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <section id="basic-syntax" class="lesson">
+        <a
+          href="{% url 'basic_syntax' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Basic Syntax</h2>
+          <p>Learn the basic structure of Python programs.</p>
+        </a>
+      </section>
+
+      <section id="operators" class="lesson">
+        <a
+          href="{% url 'operator' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Operators</h2>
+          <p>Understand different types of operators in Python.</p>
+        </a>
+      </section>
+
+      <section id="control-flow" class="lesson">
+        <a
+          href="{% url 'controlflow' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Control Flow</h2>
+          <p>Learn about loops, conditionals, and control statements.</p>
+        </a>
+      </section>
+
+      <section id="functions" class="lesson">
+        <a
+          href="{% url 'functions' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Functions</h2>
+          <p>Discover how to write and use functions in Python.</p>
+        </a>
+      </section>
+
+      <section id="data-structures" class="lesson">
+        <a
+          href="{% url 'Data_structures'%}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Data Structures</h2>
+          <p>Explore lists, dictionaries, sets, and tuples.</p>
+        </a>
+      </section>
+
+      <section id="modules-packages" class="lesson">
+        <a
+          href="{% url 'modules_packages' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Modules and Packages</h2>
+          <p>Learn how to organize and reuse code with modules and packages.</p>
+        </a>
+      </section>
+
+      <section id="file-handling" class="lesson">
+        <a
+          href="{% url 'file_handling' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>File Handling</h2>
+          <p>Understand how to work with files in Python.</p>
+        </a>
+      </section>
+
+      <section id="exception-handling" class="lesson">
+        <a
+          href="{% url 'exception_handling' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Exception Handling</h2>
+          <p>Learn how to handle errors gracefully in Python.</p>
+        </a>
+      </section>
+
+      <section id="oop" class="lesson">
+        <a href="{% url 'OOP' %}" style="text-decoration: none; color: black">
+          <h2>Object-Oriented Programming (OOP)</h2>
+          <p>Dive into classes, objects, and OOP principles in Python.</p>
+        </a>
+      </section>
+
+      <section id="libraries-frameworks" class="lesson">
+        <a
+          href="{% url 'libraries_frameworks' %}"
+          style="text-decoration: none; color: black"
+        >
+          <h2>Libraries and Frameworks</h2>
+          <p>Explore popular Python libraries and frameworks.</p>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 BIG7space. All rights reserved.</p>
+    </footer>
+  </body>
+</html>

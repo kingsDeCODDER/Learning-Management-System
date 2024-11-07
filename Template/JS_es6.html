@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ES6+ Features</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #15c421 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #26bd1b 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>ES6+ Features</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          ECMAScript 6 (ES6), also known as ECMAScript 2015, introduced a range of new features to JavaScript. Subsequent versions, often referred to as ES7+ or ES2016+, have continued to add useful features. These features enhance JavaScript's capabilities, making it more powerful and easier to work with.
+        </p>
+      </section>
+
+      <section>
+        <h2>let and const</h2>
+        <p>
+          <strong>let</strong> and <strong>const</strong> are block-scoped variable declarations introduced in ES6. They provide more control over variable scoping compared to the traditional <code>var</code> keyword.
+        </p>
+        <pre><code>// Example of let and const
+function example() {
+  if (true) {
+    let blockScoped = 'I am block-scoped';
+    const constantValue = 'I am a constant';
+    console.log(blockScoped);  // Output: I am block-scoped
+    console.log(constantValue);  // Output: I am a constant
+  }
+  console.log(blockScoped);  // Error: blockScoped is not defined
+  console.log(constantValue);  // Error: constantValue is not defined
+}
+
+example();
+        </code></pre>
+        <p>
+          <code>let</code> is used for variables that can be reassigned, while <code>const</code> is used for variables that should not be reassigned. Both are scoped to the block in which they are declared, not the function or global scope.
+        </p>
+      </section>
+
+      <section>
+        <h2>Arrow Functions</h2>
+        <p>
+          <strong>Arrow functions</strong> provide a shorter syntax for writing functions. They also capture the <code>this</code> value from their surrounding context, which helps avoid issues with <code>this</code> binding in callbacks.
+        </p>
+        <pre><code>// Example of arrow functions
+const add = (a, b) => a + b;
+
+console.log(add(5, 3));  // Output: 8
+
+// Arrow functions and this binding
+const obj = {
+  value: 42,
+  method: function() {
+    setTimeout(() => {
+      console.log(this.value);  // Output: 42
+    }, 1000);
+  }
+};
+
+obj.method();
+        </code></pre>
+        <p>
+          Arrow functions are more concise than traditional function expressions and automatically bind <code>this</code> to the context where they are defined.
+        </p>
+      </section>
+
+      <section>
+        <h2>Template Literals</h2>
+        <p>
+          <strong>Template literals</strong> allow for easier string interpolation and multi-line strings. They are enclosed by backticks (<code>\`</code>) rather than single or double quotes.
+        </p>
+        <pre><code>// Example of template literals
+const name = 'World';
+const greeting = `Hello, ${name}!`;
+
+console.log(greeting);  // Output: Hello, World!
+
+// Multi-line strings
+const multiLine = `
+Line 1
+Line 2
+Line 3
+`;
+
+console.log(multiLine);
+// Output:
+// Line 1
+// Line 2
+// Line 3
+        </code></pre>
+        <p>
+          Template literals make it easy to embed expressions inside strings and create multi-line strings without needing to concatenate multiple lines.
+        </p>
+      </section>
+
+      <section>
+        <h2>Destructuring</h2>
+        <p>
+          <strong>Destructuring</strong> allows you to extract values from arrays or properties from objects into distinct variables.
+        </p>
+        <pre><code>// Example of array destructuring
+const numbers = [1, 2, 3];
+const [first, second] = numbers;
+
+console.log(first);  // Output: 1
+console.log(second);  // Output: 2
+
+// Example of object destructuring
+const person = { name: 'John', age: 30 };
+const { name, age } = person;
+
+console.log(name);  // Output: John
+console.log(age);  // Output: 30
+        </code></pre>
+        <p>
+          Destructuring simplifies extracting multiple values from arrays and objects and can make code more readable and concise.
+        </p>
+      </section>
+
+      <section>
+        <h2>Rest and Spread Operators</h2>
+        <p>
+          The <strong>rest operator</strong> allows you to represent an indefinite number of arguments as an array, while the <strong>spread operator</strong> allows you to spread elements of an array or object into another array or object.
+        </p>
+        <pre><code>// Example of rest operator
+function sum(...numbers) {
+  return numbers.reduce((acc, num) => acc + num, 0);
+}
+
+console.log(sum(1, 2, 3, 4));  // Output: 10
+
+// Example of spread operator
+const array1 = [1, 2, 3];
+const array2 = [4, 5, 6];
+const combined = [...array1, ...array2];
+
+console.log(combined);  // Output: [1, 2, 3, 4, 5, 6]
+        </code></pre>
+        <p>
+          The rest operator collects all remaining arguments into an array, while the spread operator distributes elements of an array or object into another array or object.
+        </p>
+      </section>
+
+      <section>
+        <h2>Classes</h2>
+        <p>
+          <strong>Classes</strong> provide a clearer syntax for creating objects and dealing with inheritance compared to traditional prototype-based inheritance. They use the <code>class</code> keyword and include constructors, methods, and inheritance support.
+        </p>
+        <pre><code>// Example of classes
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+
+  speak() {
+    console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.speak();  // Output: Rex barks.
+        </code></pre>
+        <p>
+          In this example, <code>Animal</code> is a base class with a method, and <code>Dog</code> extends <code>Animal</code>, overriding the <code>speak</code> method.
+        </p>
+      </section>
+
+      <section>
+        <h2>Modules</h2>
+        <p>
+          <strong>Modules</strong> allow you to split your code into separate files and import/export functionality between them. This promotes code organization and reuse.
+        </p>
+        <pre><code>// module.js
+export function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// main.js
+import { greet } from './module.js';
+
+console.log(greet('World'));  // Output: Hello, World!
+        </code></pre>
+        <p>
+          The <code>export</code> keyword is used to export functions or variables from a module, and the <code>import</code> keyword is used to import them into another module.
+        </p>
+      </section>
+
+      <section>
+        <h2>Promises</h2>
+        <p>
+          <strong>Promises</strong> are used to handle asynchronous operations. They represent the eventual completion or failure of an asynchronous operation and its resulting value.
+        </p>
+        <pre><code>// Example of promises
+const fetchData = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Data fetched successfully!');
+    }, 2000);
+  });
+};
+
+fetchData().then(result => console.log(result));  // Output after 2 seconds: Data fetched successfully!
+        </code></pre>
+        <p>
+          Promises allow you to handle asynchronous results in a cleaner way compared to callbacks, making it easier to chain operations and handle errors.
+        </p>
+      </section>
+
+      <section>
+        <h2>Async/Await</h2>
+        <p>
+          <strong>Async/await</strong> is a syntactic sugar over promises, providing a more readable way to work with asynchronous code. Functions declared with <code>async</code> always return a promise, and within these functions, you can use <code>await</code> to pause execution until a promise is resolved.
+        </p>
+        <pre><code>// Example of async/await
+async function fetchData() {
+  try {
+    const result = await new Promise((resolve, reject) => {
+      setTimeout(() => resolve('Data fetched successfully!'), 2000);
+    });
+    console.log(result);  // Output after 2 seconds: Data fetched successfully!
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+fetchData();
+        </code></pre>
+        <p>
+          Using <code>async</code> and <code>await</code> can make asynchronous code easier to read and maintain, as it looks more like synchronous code.
+        </p>
+      </section>
+    </main>
+
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Control Flow</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Control Flow</h1>
+    </header>
+    <main>
+      <section>
+        <h2>If Statements</h2>
+        <p>
+          The <code>if</code> statement allows you to test a condition and
+          execute a block of code if the condition is true.
+        </p>
+        <pre><code>if condition:
+    # code to execute if condition is true
+</code></pre>
+        <p>Example:</p>
+        <pre><code>if 10 > 5:
+    print("10 is greater than 5")</code></pre>
+      </section>
+      <section>
+        <h2>Else Statements</h2>
+        <p>
+          The <code>else</code> statement executes a block of code if the
+          condition in the <code>if</code> statement is false.
+        </p>
+        <pre><code>if condition:
+    # code to execute if condition is true
+else:
+    # code to execute if condition is false
+</code></pre>
+        <p>Example:</p>
+        <pre><code>if 10 < 5:
+    print("10 is less than 5")
+else:
+    print("10 is not less than 5")</code></pre>
+      </section>
+      <section>
+        <h2>Elif Statements</h2>
+        <p>
+          The <code>elif</code> statement allows you to check multiple
+          conditions. If the first condition is false, it moves to the next
+          <code>elif</code> condition.
+        </p>
+        <pre><code>if condition1:
+    # code to execute if condition1 is true
+elif condition2:
+    # code to execute if condition2 is true
+else:
+    # code to execute if none of the conditions are true
+</code></pre>
+        <p>Example:</p>
+        <pre><code>if 10 == 5:
+    print("10 is equal to 5")
+elif 10 > 5:
+    print("10 is greater than 5")
+else:
+    print("10 is less than 5")</code></pre>
+      </section>
+      <section>
+        <h2>For Loops</h2>
+        <p>
+          The <code>for</code> loop is used to iterate over a sequence (like a
+          list, tuple, or string) and execute a block of code for each item in
+          the sequence.
+        </p>
+        <pre><code>for item in sequence:
+    # code to execute for each item
+</code></pre>
+        <p>Example:</p>
+        <pre><code>for i in range(5):
+    print(i)</code></pre>
+      </section>
+      <section>
+        <h2>While Loops</h2>
+        <p>
+          The <code>while</code> loop allows you to execute a block of code as
+          long as a condition is true.
+        </p>
+        <pre><code>while condition:
+    # code to execute while condition is true
+</code></pre>
+        <p>Example:</p>
+        <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+      </section>
+      <h2>Learn further via below video</h2>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/Mg6B3RsMd54?si=zUiUD88O15WqzY2d"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Java Setup and Installation</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #0000008a 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #00000068 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Java Setup and Installation</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>
+          To start programming in Java, you'll need to install the Java Development Kit (JDK) and set up an Integrated Development Environment (IDE). This guide will walk you through the installation process for both.
+        </p>
+      </section>
+
+      <section>
+        <h2>Installing the Java Development Kit (JDK)</h2>
+        <p>
+          The JDK provides the tools necessary to develop Java applications. Follow these steps to install it:
+        </p>
+        <ol>
+          <li><strong>Download the JDK</strong>: Visit the official Oracle website or an OpenJDK distribution site to download the latest version of the JDK.</li>
+          <li><strong>Run the Installer</strong>: Execute the downloaded installer file. Follow the on-screen instructions to complete the installation.</li>
+          <li><strong>Set Up Environment Variables</strong>: Configure the <code>JAVA_HOME</code> environment variable to point to the directory where the JDK is installed. Also, update the <code>PATH</code> variable to include the JDK <code>bin</code> directory.</li>
+        </ol>
+        <p>
+          For detailed instructions, refer to the official installation guides:
+        </p>
+        <ul>
+          <li><a href="https://www.oracle.com/java/technologies/javase-downloads.html" target="_blank">Oracle JDK Installation Guide</a></li>
+          <li><a href="https://adoptium.net/" target="_blank">AdoptOpenJDK Installation Guide</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Setting Up an Integrated Development Environment (IDE)</h2>
+        <p>
+          An IDE provides tools and features to make Java development more efficient. Two popular IDEs for Java are Eclipse and IntelliJ IDEA. Here’s how to set them up:
+        </p>
+
+        <h3>1. Eclipse</h3>
+        <ol>
+          <li><strong>Download Eclipse</strong>: Visit the <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse Downloads page</a> and download the Eclipse IDE for Java Developers.</li>
+          <li><strong>Run the Installer</strong>: Extract the downloaded archive and run the Eclipse executable file.</li>
+          <li><strong>Set Up Workspace</strong>: When you first launch Eclipse, you'll be prompted to select a workspace directory. This is where your projects will be stored. Choose a location and click "Launch."</li>
+        </ol>
+
+        <h3>2. IntelliJ IDEA</h3>
+        <ol>
+          <li><strong>Download IntelliJ IDEA</strong>: Visit the <a href="https://www.jetbrains.com/idea/download/" target="_blank">IntelliJ IDEA Downloads page</a> and download the Community or Ultimate edition.</li>
+          <li><strong>Run the Installer</strong>: Execute the downloaded installer file and follow the installation instructions.</li>
+          <li><strong>Initial Configuration</strong>: When you first run IntelliJ IDEA, you can import settings from a previous installation or configure it from scratch. Follow the on-screen instructions to set up the IDE.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Verifying the Installation</h2>
+        <p>
+          To ensure that Java and your IDE are correctly installed, you can verify the installation as follows:
+        </p>
+        <ol>
+          <li><strong>Check JDK Installation</strong>: Open a command prompt or terminal and type <code>java -version</code> and <code>javac -version</code> to confirm that Java is installed and accessible.</li>
+          <li><strong>Create a Simple Java Program</strong>: In your IDE, create a new Java project and add a simple "Hello, World!" program. Run the program to verify that your development environment is set up correctly.</li>
+        </ol>
+        <pre><code>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+        </code></pre>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>
+          Once you have installed the JDK and set up an IDE, you’re ready to start programming in Java. Make sure to follow best practices and utilize the extensive resources available to enhance your development skills.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

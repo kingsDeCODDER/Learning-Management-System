@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Libraries and Frameworks</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Libraries and Frameworks</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What are Libraries and Frameworks?</h2>
+        <p>
+          <strong>Libraries</strong> are collections of functions and methods
+          that you can use in your programs. <strong>Frameworks</strong> are
+          more comprehensive collections that provide the structure for building
+          applications.
+        </p>
+      </section>
+
+      <section>
+        <h2>Popular Python Libraries</h2>
+        <p>Here are some of the most popular libraries in Python:</p>
+
+        <h3>NumPy</h3>
+        <p>
+          <code>NumPy</code> is used for numerical computing in Python. It
+          provides support for arrays, matrices, and many mathematical
+          functions.
+        </p>
+        <pre><code>import numpy as np
+arr = np.array([1, 2, 3, 4])
+print(arr)</code></pre>
+
+        <h3>Pandas</h3>
+        <p>
+          <code>Pandas</code> is used for data manipulation and analysis. It
+          provides data structures like DataFrames for handling tabular data.
+        </p>
+        <pre><code>import pandas as pd
+data = {'Name': ['John', 'Anna'], 'Age': [28, 24]}
+df = pd.DataFrame(data)
+print(df)</code></pre>
+
+        <h3>Matplotlib</h3>
+        <p>
+          <code>Matplotlib</code> is a plotting library used for creating
+          static, animated, and interactive visualizations in Python.
+        </p>
+        <pre><code>import matplotlib.pyplot as plt
+plt.plot([1, 2, 3], [4, 5, 6])
+plt.show()</code></pre>
+      </section>
+
+      <section>
+        <h2>Popular Python Frameworks</h2>
+        <p>
+          Python frameworks provide the foundation for building applications,
+          particularly web applications.
+        </p>
+
+        <h3>Django</h3>
+        <p>
+          <code>Django</code> is a high-level web framework that encourages
+          rapid development. It follows the "Don't Repeat Yourself" (DRY)
+          principle.
+        </p>
+        <pre><code># In Django, you define models and views
+from django.db import models
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()</code></pre>
+
+        <h3>Flask</h3>
+        <p>
+          <code>Flask</code> is a micro web framework that is lightweight and
+          flexible, giving you more control over your application structure.
+        </p>
+        <pre><code>from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello, Flask!"</code></pre>
+
+        <h3>FastAPI</h3>
+        <p>
+          <code>FastAPI</code> is a modern, fast (high-performance) web
+          framework for building APIs with Python.
+        </p>
+        <pre><code>from fastapi import FastAPI
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"message": "Hello, FastAPI!"}</code></pre>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="320"
+        src="https://www.youtube.com/embed/-29x_deQQus?si=Bw5XwZ1bd1XJ9_3Y"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

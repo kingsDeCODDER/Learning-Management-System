@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Exception Handling</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Python Exception Handling</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is Exception Handling?</h2>
+        <p>
+          Exception handling in Python allows you to manage and respond to
+          errors or exceptions that occur during program execution. It ensures
+          that the program doesn't crash and allows for graceful error handling.
+        </p>
+      </section>
+
+      <section>
+        <h2>Try and Except Block</h2>
+        <p>
+          The basic structure for exception handling in Python is the
+          <code>try</code> and <code>except</code> block.
+        </p>
+        <pre><code>try:
+    x = 10 / 0
+except ZeroDivisionError:
+    print("You can't divide by zero!")</code></pre>
+        <p>
+          In this example, the <code>try</code> block will raise a
+          <code>ZeroDivisionError</code>, which is then caught by the
+          <code>except</code> block, preventing the program from crashing.
+        </p>
+      </section>
+
+      <section>
+        <h2>Catching Specific Exceptions</h2>
+        <p>
+          You can catch specific exceptions to handle them in different ways:
+        </p>
+        <pre><code>try:
+    number = int(input("Enter a number: "))
+except ValueError:
+    print("That's not a valid number!")</code></pre>
+        <p>
+          If a user enters something that cannot be converted into an integer,
+          the <code>ValueError</code> exception will be raised, and the message
+          will be displayed.
+        </p>
+      </section>
+
+      <section>
+        <h2>Finally Block</h2>
+        <p>
+          The <code>finally</code> block is executed no matter what, whether an
+          exception is raised or not. It is typically used for cleanup actions.
+        </p>
+        <pre><code>try:
+    file = open("data.txt", "r")
+except FileNotFoundError:
+    print("File not found!")
+finally:
+    print("Closing file operation.")</code></pre>
+        <p>
+          Even if the file is not found, the <code>finally</code> block will
+          still execute.
+        </p>
+      </section>
+
+      <section>
+        <h2>Else Block</h2>
+        <p>
+          The <code>else</code> block runs if no exceptions are raised in the
+          <code>try</code> block.
+        </p>
+        <pre><code>try:
+    x = 10 / 2
+except ZeroDivisionError:
+    print("Division by zero!")
+else:
+    print("Division successful!")</code></pre>
+        <p>
+          Here, if the division is successful, the <code>else</code> block will
+          run.
+        </p>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="340"
+        src="https://www.youtube.com/embed/-_uNayxaQoU?si=KAob9qwAvwUwsP9t"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>

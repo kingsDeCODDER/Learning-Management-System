@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python OOP</title>
+    <style>
+      /* Google Font */
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600&display=swap");
+
+      body {
+        font-family: "Raleway", sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: #dde1e8;
+        color: #333;
+      }
+
+      header {
+        background: linear-gradient(
+          135deg,
+          #f09433 0%,
+          #e6683c 25%,
+          #dc2743 50%,
+          #cc2366 75%,
+          #bc1888 100%
+        );
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+
+      main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      section {
+        margin-bottom: 20px;
+      }
+
+      section h2 {
+        color: #4caf50;
+        font-size: 1.8em;
+        margin-top: 0;
+      }
+
+      p {
+        margin: 10px 0;
+      }
+
+      pre {
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+        font-size: 1em;
+      }
+
+      code {
+        color: #d63384;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #4caf50;
+        color: #fff;
+        margin-top: 20px;
+        border-radius: 0 0 10px 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Object-Oriented Programming in Python</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>What is OOP?</h2>
+        <p>
+          Object-Oriented Programming (OOP) is a programming paradigm that uses
+          "objects" to model real-world things. It allows for better structure
+          and modularity by organizing code into classes and objects.
+        </p>
+      </section>
+
+      <section>
+        <h2>Classes and Objects</h2>
+        <p>
+          A <strong>class</strong> is a blueprint for creating objects. Objects
+          are instances of classes.
+        </p>
+        <pre><code>class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+
+    def info(self):
+        return f'{self.year} {self.make} {self.model}'</code></pre>
+        <p>
+          In the example above, <code>Car</code> is the class, and it contains
+          attributes (<code>make</code>, <code>model</code>, <code>year</code>)
+          and methods like <code>info()</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2>Creating an Object</h2>
+        <p>Once you have a class, you can create objects from it:</p>
+        <pre><code>my_car = Car('Toyota', 'Corolla', 2020)
+print(my_car.info())</code></pre>
+        <p>
+          This creates an object <code>my_car</code> of the
+          <code>Car</code> class, and you can access its methods and attributes.
+        </p>
+      </section>
+
+      <section>
+        <h2>Inheritance</h2>
+        <p>
+          Inheritance allows a class to inherit attributes and methods from
+          another class. This promotes code reuse.
+        </p>
+        <pre><code>class ElectricCar(Car):
+    def __init__(self, make, model, year, battery_size):
+        super().__init__(make, model, year)
+        self.battery_size = battery_size
+
+    def battery_info(self):
+        return f'{self.battery_size}-kWh battery'</code></pre>
+        <p>
+          The <code>ElectricCar</code> class inherits from the
+          <code>Car</code> class but adds additional functionality.
+        </p>
+      </section>
+
+      <section>
+        <h2>Encapsulation and Polymorphism</h2>
+        <p>
+          <strong>Encapsulation</strong> refers to bundling data (attributes)
+          and methods (functions) that operate on the data into a single unit,
+          or class.
+        </p>
+        <p>
+          <strong>Polymorphism</strong> allows different classes to use the same
+          method names, even if their behavior is different.
+        </p>
+        <pre><code>class Animal:
+    def speak(self):
+        return "Sound"
+
+class Dog(Animal):
+    def speak(self):
+        return "Bark"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow"
+
+animals = [Dog(), Cat()]
+for animal in animals:
+    print(animal.speak())</code></pre>
+        <p>
+          In this example, both <code>Dog</code> and <code>Cat</code> inherit
+          from <code>Animal</code>, but their <code>speak()</code> methods
+          behave differently.
+        </p>
+      </section>
+      <iframe style="border-radius: 50px;"
+        width="800"
+        height="340"
+        src="https://www.youtube.com/embed/JeznW_7DlB0?si=-TBLQOxPWdAWy2ub"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </main>
+  </body>
+</html>
